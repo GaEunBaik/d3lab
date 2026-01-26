@@ -1,83 +1,275 @@
-<h2>
-  데이터로 <span>의사결정 구조</span>를 만드는<br/>
-  데이터 분석가 · BI 컨설턴트
-</h2>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>백가은 | Data Analyst · BI Consultant</title>
+  <meta name="description" content="백가은 - 데이터 분석/BI 포트폴리오. Excel·SQL·BigQuery·Tableau 기반 지표 정의, 데이터 모델링, 대시보드 구축." />
 
-<p class="lead">
-  Excel·SQL·BigQuery·Tableau 기반으로  
-  지표 정의 → 데이터 모델링 → 대시보드 구현까지 수행합니다.
-</p>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --text:#e8ecff;
+      --muted:#b8c2ff;
+      --line:rgba(255,255,255,.12);
+      --accent:#7aa2ff;
+      --accent2:#6cf0c2;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(122,162,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(108,240,194,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:1040px; margin:0 auto; padding:28px 18px 56px;}
 
-<div class="badge">
-  Data Analyst · BI Consultant · Dashboard Builder
-</div>
+    /* Top */
+    .topbar{
+      display:flex; gap:12px; align-items:flex-start; justify-content:space-between;
+      padding:10px 0 18px; border-bottom:1px solid var(--line);
+    }
+    .brand{display:flex; align-items:center; gap:12px;}
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display:grid; place-items:center; font-weight:900; color:#081022;
+      box-shadow:0 8px 30px rgba(0,0,0,.35);
+      user-select:none;
+    }
+    .brand h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    .toplinks{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:13px; color:var(--muted);
+    }
+    .toplinks a{opacity:.9; text-decoration:none; border:1px solid var(--line); padding:8px 10px; border-radius:12px; background:rgba(255,255,255,.04);}
+    .toplinks a:hover{opacity:1; transform:translateY(-1px); transition:.15s ease;}
 
-<h3 style="margin:0 0 10px;">핵심 역량</h3>
-<div class="kpi">
-  <div class="item">
-    <div class="num">데이터 구조화</div>
-    <div class="label">지표 정의 · ERD · 스타 스키마</div>
+    /* Hero */
+    .hero{
+      padding:22px 0 16px;
+      display:grid; grid-template-columns: 1.15fr .85fr; gap:14px;
+    }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr;} }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 12px; border-radius:999px; font-size:12px;
+      background: rgba(122,162,255,.14);
+      border:1px solid rgba(122,162,255,.24);
+      color: var(--muted);
+      width: fit-content;
+    }
+    .badge b{color:var(--text)}
+    .hero h2{margin:12px 0 10px; font-size:34px; line-height:1.15;}
+    .hero h2 span{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .lead{color:var(--muted); font-size:15px; margin:0 0 14px;}
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
+    .btn{
+      appearance:none; border:1px solid var(--line); background:rgba(255,255,255,.06);
+      color:var(--text); padding:11px 14px; border-radius:14px; text-decoration:none;
+      font-weight:650; font-size:14px;
+    }
+    .btn.primary{
+      border:1px solid rgba(122,162,255,.35);
+      background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(108,240,194,.18));
+    }
+    .btn:hover{transform:translateY(-1px); transition:.15s ease;}
+
+    /* Cards */
+    .card{
+      background: rgba(17,26,51,.82);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 12px 35px rgba(0,0,0,.28);
+    }
+    .kpi{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+    .kpi .item{padding:12px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.04);}
+    .kpi .num{font-size:16px; font-weight:850;}
+    .kpi .label{font-size:12px; color:var(--muted); margin-top:4px}
+
+    /* Sections */
+    .section{padding:14px 0 0;}
+    .section h3{margin:18px 0 10px; font-size:18px;}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr;} }
+    .mini h4{margin:0 0 6px; font-size:15px;}
+    .mini p{margin:0; font-size:13px; color:var(--muted);}
+    .small{font-size:12px; color:var(--muted); margin-top:10px;}
+    .pill{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); background:rgba(255,255,255,.04);
+      font-size:12px; color:var(--muted); margin:4px 6px 0 0;
+    }
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    .footer{
+      margin-top:26px; padding-top:16px; border-top:1px solid var(--line);
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; color:var(--muted); font-size:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- Top -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">BG</div>
+        <div>
+          <h1>백가은 <span style="color:var(--muted); font-weight:600;">| Data Analyst · BI Consultant</span></h1>
+          <p>지표 정의 → SQL 집계 → BI 대시보드까지, 실무 의사결정을 위한 분석을 합니다.</p>
+        </div>
+      </div>
+
+      <div class="toplinks">
+        <a href="#projects">프로젝트</a>
+        <a href="#skills">기술</a>
+        <a href="#contact">연락</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero">
+        <div>
+          <div class="badge"><b>Focus</b> · Decision-ready analytics & dashboards</div>
+
+          <h2>
+            데이터가 있어도 <span>판단</span>이 어려운 조직을 위해<br/>
+            “결정 가능한 구조”를 설계합니다.
+          </h2>
+
+          <p class="lead">
+            Excel·SQL·BigQuery·Tableau 기반으로
+            KPI 정의, 데이터 모델링, 자동 리포팅/대시보드 구축을 수행합니다.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#projects">대표 프로젝트 보기</a>
+            <a class="btn" href="#contact">협업/채용 문의</a>
+          </div>
+
+          <p class="small">
+            * 이 페이지는 이력서 링크용 1페이지 포트폴리오입니다.
+          </p>
+        </div>
+
+        <aside class="card">
+          <h3 style="margin:0 0 10px;">핵심 역량</h3>
+          <div class="kpi">
+            <div class="item">
+              <div class="num">데이터 구조화</div>
+              <div class="label">KPI 정의 · ERD/스타스키마</div>
+            </div>
+            <div class="item">
+              <div class="num">SQL 분석</div>
+              <div class="label">추출·집계 · 반복 리포팅 자동화</div>
+            </div>
+            <div class="item">
+              <div class="num">BI 대시보드</div>
+              <div class="label">Tableau · 모니터링/원인 분석</div>
+            </div>
+            <div class="item">
+              <div class="num">커뮤니케이션</div>
+              <div class="label">요구사항 구조화 · 보고 체계 설계</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <span class="pill">Excel</span>
+            <span class="pill">SQL</span>
+            <span class="pill">BigQuery</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">Data Modeling</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <h3>대표 프로젝트</h3>
+
+        <div class="grid">
+          <div class="card mini">
+            <h4>① 제조/운영 데이터 KPI 대시보드 구축</h4>
+            <p>재고·생산 데이터를 구조화하고 SQL 집계 로직을 설계하여 대시보드로 운영 지표를 표준화했습니다.</p>
+            <p class="small">역할: KPI 정의 · 데이터 모델링 · SQL · Tableau</p>
+          </div>
+
+          <div class="card mini">
+            <h4>② 마케팅 성과 리포팅 자동화</h4>
+            <p>캠페인/매출 데이터를 지표 기준으로 정리하고 반복 보고를 위한 집계 구조 및 리포팅 템플릿을 구축했습니다.</p>
+            <p class="small">역할: 지표 정의 · SQL 집계 · 대시보드/리포트</p>
+          </div>
+
+          <div class="card mini">
+            <h4>③ 실무형 데이터 분석 교육 콘텐츠</h4>
+            <p>Excel→SQL→BI로 이어지는 실무 흐름 중심 커리큘럼과 실습 자료를 제작하고 교육을 운영했습니다.</p>
+            <p class="small">역할: 커리큘럼 설계 · 실습 데이터/문제 · 강의</p>
+          </div>
+        </div>
+
+        <p class="small">
+          * 회사명/세부 수치는 지원처 요구에 따라 별도 자료로 제공 가능합니다.
+        </p>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section">
+        <h3>기술</h3>
+        <div class="card">
+          <p class="mono" style="margin:0;">
+            Excel · SQL · BigQuery · Tableau · Data Modeling · (옵션) GA4
+          </p>
+          <p class="small" style="margin-bottom:0;">
+            업무 스타일: 지표 정의 → 데이터 구조 → 집계 로직 → 시각화 → 운영 가이드
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <h3>Contact</h3>
+        <div class="card">
+          <p style="margin:0 0 10px; color:var(--muted);">프로젝트/채용/협업 문의는 아래로 연락 주세요.</p>
+          <p style="margin:0;">
+            Email:
+            <a href="mailto:eybaik85@naver.com">eybaik85@naver.com</a>
+            <br/>
+            Phone:
+            <a href="tel:+821067085879">010-6708-5879</a>
+            <br/>
+            Site:
+            <a href="https://d3lab.site">https://d3lab.site</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div>© <span id="y"></span> Baik Gaeun. All rights reserved.</div>
+        <div>Last updated: <span id="d"></span></div>
+      </div>
+    </main>
   </div>
-  <div class="item">
-    <div class="num">SQL 분석</div>
-    <div class="label">집계 · 자동 리포팅 쿼리</div>
-  </div>
-  <div class="item">
-    <div class="num">BI 대시보드</div>
-    <div class="label">Tableau · KPI/원인 분석</div>
-  </div>
-  <div class="item">
-    <div class="num">실무 중심</div>
-    <div class="label">의사결정에 바로 쓰이는 분석</div>
-  </div>
-</div>
 
-<section class="section">
-  <h3>대표 프로젝트</h3>
-
-  <div class="grid">
-    <div class="card mini">
-      <h4>① 글로벌 제조사 BI 대시보드 구축</h4>
-      <p>
-        생산·재고 데이터를 SQL로 집계하고  
-        Tableau 대시보드로 KPI 모니터링 체계 구축
-      </p>
-      <p class="small">역할: 데이터 모델링 · SQL · Tableau</p>
-    </div>
-
-    <div class="card mini">
-      <h4>② 마케팅 성과 분석 자동화</h4>
-      <p>
-        캠페인/매출 데이터를 구조화하여  
-        반복 리포팅을 자동화한 분석 환경 설계
-      </p>
-      <p class="small">역할: 지표 정의 · SQL · 대시보드</p>
-    </div>
-
-    <div class="card mini">
-      <h4>③ 데이터 분석 교육 콘텐츠 제작</h4>
-      <p>
-        실무자 대상 Excel·SQL·BI 기반  
-        데이터 분석 커리큘럼 및 실습 자료 제작
-      </p>
-      <p class="small">역할: 커리큘럼 설계 · 강의</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h3>기술 스택</h3>
-  <div class="card">
-    <p class="mono">
-      Excel · SQL · BigQuery · Tableau · Data Modeling · GA4
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <h3>Contact</h3>
-  <div class="card">
-    <p>Email: <a href="mailto:eybaik85@naver.com">eybaik85@naver.com</a></p>
-    <p>GitHub Pages: <a href="https://d3lab.site">https://d3lab.site</a></p>
-  </div>
-</section>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth()+1).padStart(2,'0');
+    const dd = String(now.getDate()).padStart(2,'0');
+    document.getElementById("d").textContent = `${yyyy}-${mm}-${dd}`;
+  </script>
+</body>
+</html>
