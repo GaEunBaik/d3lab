@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>D3 Lab | 데이터 기반 의사결정 컨설팅</title>
-  <meta name="description" content="중소기업·소상공인을 위한 데이터 분석 구조 설계, SQL·BI 대시보드 구축/활용 컨설팅, 사내 교육까지 한 번에." />
+  <title>D3 Lab | Draft Planning 기반 데이터 컨설팅</title>
+  <meta name="description" content="대시보드/BI 도입 전에 ‘되는지 안 되는지’부터 점검합니다. 데이터 구조·KPI·리스크 진단(Draft Planning) 중심 컨설팅." />
   <style>
     :root{
       --bg:#0b1020;
@@ -18,7 +18,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
       background: radial-gradient(1200px 600px at 10% 10%, rgba(122,162,255,.25), transparent 60%),
                   radial-gradient(900px 500px at 80% 20%, rgba(108,240,194,.18), transparent 55%),
                   var(--bg);
@@ -36,277 +36,182 @@
       width:38px; height:38px; border-radius:12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       display:grid; place-items:center; font-weight:800; color:#081022;
-      box-shadow:0 8px 30px rgba(0,0,0,.35);
     }
-    .brand h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .brand h1{font-size:16px; margin:0;}
     .brand p{margin:0; font-size:12px; color:var(--muted)}
     .nav{display:flex; gap:14px; font-size:13px; color:var(--muted)}
-    .nav a{opacity:.9; text-decoration:none}
-    .nav a:hover{opacity:1; text-decoration:underline}
+    .nav a{text-decoration:none}
     .hero{padding:34px 0 26px; display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;}
     @media (max-width:900px){ .hero{grid-template-columns:1fr;} }
+
     .badge{
       display:inline-flex; gap:8px; align-items:center;
       padding:7px 12px; border-radius:999px; font-size:12px;
       background: rgba(122,162,255,.14); border:1px solid rgba(122,162,255,.24);
       color: var(--muted);
+      flex-wrap:wrap;
     }
     .badge b{color:var(--text)}
-    .hero h2{margin:14px 0 10px; font-size:34px; line-height:1.15;}
-    .hero h2 span{background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-    .hero .lead{color:var(--muted); font-size:15px; margin:0 0 18px;}
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
+
+    .hero h2{margin:14px 0 10px; font-size:32px; line-height:1.2;}
+    .hero h2 span{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{color:var(--muted); font-size:15px;}
+
     .btn{
-      appearance:none; border:1px solid var(--line); background:rgba(255,255,255,.06);
-      color:var(--text); padding:11px 14px; border-radius:14px; text-decoration:none;
-      font-weight:650; font-size:14px;
+      display:inline-block;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:14px;
+      text-decoration:none;
+      margin-right:8px;
+      margin-top:10px;
+      font-weight:600;
+      font-size:14px;
     }
     .btn.primary{
       border:1px solid rgba(122,162,255,.35);
       background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(108,240,194,.18));
     }
-    .btn:hover{transform:translateY(-1px); transition:.15s ease; }
+
     .card{
       background: rgba(17,26,51,.82);
       border:1px solid var(--line);
       border-radius:18px;
       padding:16px;
-      box-shadow:0 12px 35px rgba(0,0,0,.28);
     }
-    .kpi{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
-    .kpi .item{padding:12px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.04);}
-    .kpi .num{font-size:18px; font-weight:800;}
-    .kpi .label{font-size:12px; color:var(--muted); margin-top:2px}
-    .section{padding:18px 0 0;}
-    .section h3{margin:18px 0 10px; font-size:18px;}
+
+    .section{padding-top:24px;}
+    .section h3{font-size:18px;}
+
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
     @media (max-width:900px){ .grid{grid-template-columns:1fr;} }
+
     .mini h4{margin:0 0 6px; font-size:15px;}
     .mini p{margin:0; font-size:13px; color:var(--muted);}
-    .list{margin:0; padding-left:18px; color:var(--muted); font-size:13px;}
-    .split{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
-    @media (max-width:900px){ .split{grid-template-columns:1fr;} }
+    .list{margin:0; padding-left:18px; font-size:13px; color:var(--muted);}
+
     .footer{
-      margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
-      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; color:var(--muted); font-size:12px;
+      margin-top:40px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
     }
-    .small{font-size:12px; color:var(--muted)}
-    .pill{
-      display:inline-block; padding:6px 10px; border-radius:999px;
-      border:1px solid var(--line); background:rgba(255,255,255,.04);
-      font-size:12px; color:var(--muted); margin:4px 6px 0 0;
-    }
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="brand">
-        <div class="logo">D3</div>
-        <div>
-          <h1>D3 Lab</h1>
-          <p>데이터 기반 의사결정 컨설팅 · 대시보드 구축/활용 · 기업 교육</p>
+<div class="wrap">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">D3</div>
+      <div>
+        <h1>D3 Lab</h1>
+        <p>Draft Planning · 데이터 구조/지표 진단 · 대시보드/교육</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#services">서비스</a>
+      <a href="#process">진행</a>
+      <a href="#contact">문의</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="badge">
+          주업종 <b>741400 경영컨설팅업</b> ·
+          부업종 <b>940903 강사</b>
+        </div>
+
+        <h2>
+          대시보드 만들기 전에,<br>
+          <span>이 데이터로 되는지</span>부터 확인합니다.
+        </h2>
+
+        <p class="lead">
+          D3 Lab은 BI 도입·대시보드 구축 전에 데이터 구조와 KPI 정의를 점검하는
+          Draft Planning(사전 설계) 중심 컨설팅을 제공합니다.
+        </p>
+
+        <a class="btn primary" href="#contact">사전 진단 미팅 요청</a>
+        <a class="btn" href="#services">서비스 범위 보기</a>
+      </div>
+
+      <aside class="card">
+        <h3>핵심 원칙</h3>
+        <ul class="list">
+          <li>“예쁜 화면”보다 의사결정 구조 먼저</li>
+          <li>가능/불가능 범위 명확화</li>
+          <li>리스크·재작업 최소화</li>
+          <li>필요 시 구현·교육까지 확장</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="services" class="section">
+      <h3>서비스</h3>
+      <div class="grid">
+        <div class="card mini">
+          <h4>① Draft Planning (사전 진단)</h4>
+          <p>데이터 구조, KPI 정의, 리스크 점검 및 1차 진단 리포트 제공</p>
+        </div>
+        <div class="card mini">
+          <h4>② KPI·지표 체계 설계</h4>
+          <p>산식·기준·필터·책임 정리 및 정의서 작성</p>
+        </div>
+        <div class="card mini">
+          <h4>③ (선택) 구현·정착</h4>
+          <p>SQL 집계, BI 대시보드, 운영 가이드 및 교육</p>
         </div>
       </div>
-      <nav class="nav">
-        <a href="#services">서비스</a>
-        <a href="#process">진행</a>
-        <a href="#tech">기술</a>
-        <a href="#contact">문의</a>
-      </nav>
-    </header>
+    </section>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="badge">주업종 <b>741400 경영컨설팅업</b> · 부업종 <b>809000 교육지원</b></div>
-          <h2>
-            데이터가 있어도 <span>판단</span>이 어려운 조직을 위해<br/>
-            분석 구조부터 대시보드까지 한 번에 만듭니다.
-          </h2>
-          <p class="lead">
-            중소기업·소상공인·기관을 대상으로 데이터 정의(지표/구조) → 추출/가공(SQL) → BI 대시보드 →
-            활용 정착(교육/리포팅)까지 end-to-end로 지원합니다.
-          </p>
-          <div class="cta">
-            <a class="btn primary" href="#contact">상담/미팅 요청</a>
-            <a class="btn" href="#services">서비스 범위 보기</a>
-          </div>
-          <p class="small" style="margin-top:10px;">
-            * 1인 창업/예비창업 단계에서도 실행 가능한 현실적인 범위로 설계합니다.
-          </p>
-        </div>
-
-        <aside class="card">
-          <h3 style="margin:0 0 10px;">한눈에 보기</h3>
-          <div class="kpi">
-            <div class="item">
-              <div class="num">전략형</div>
-              <div class="label">의사결정 구조/지표 설계</div>
-            </div>
-            <div class="item">
-              <div class="num">실행형</div>
-              <div class="label">SQL·BI 대시보드 구축</div>
-            </div>
-            <div class="item">
-              <div class="num">정착형</div>
-              <div class="label">사내 교육·활용 프로세스</div>
-            </div>
-            <div class="item">
-              <div class="num">1~4주</div>
-              <div class="label">초기 MVP(범위에 따라)</div>
-            </div>
-          </div>
-          <div style="margin-top:12px;">
-            <span class="pill">Excel</span>
-            <span class="pill">SQL</span>
-            <span class="pill">BigQuery</span>
-            <span class="pill">Tableau</span>
-            <span class="pill">Data Modeling</span>
-          </div>
-          <p class="small" style="margin-top:12px;">
-            목적: “보고서”가 아니라 <b>결정 가능한 구조</b>를 만드는 것.
-          </p>
-        </aside>
-      </section>
-
-      <section id="services" class="section">
-        <h3>서비스</h3>
-        <div class="grid">
-          <div class="card mini">
-            <h4>① 데이터/지표 구조 진단</h4>
-            <p>현황 데이터(엑셀/DB/툴) 기준으로 지표 정의, 누락/중복, 보고 체계를 점검합니다.</p>
-            <ul class="list">
-              <li>지표(정의서) · 대시보드 목적 정렬</li>
-              <li>데이터 소스/권한/수집 방식 점검</li>
-            </ul>
-          </div>
-          <div class="card mini">
-            <h4>② SQL 기반 추출·집계</h4>
-            <p>분석에 필요한 테이블 설계와 쿼리 작성, 자동 집계 구조를 구축합니다.</p>
-            <ul class="list">
-              <li>데이터 정리(키, 조인, 집계)</li>
-              <li>정기 리포팅용 뷰/쿼리 설계</li>
-            </ul>
-          </div>
-          <div class="card mini">
-            <h4>③ BI 대시보드 구축/개선</h4>
-            <p>Tableau 등 BI 도구로 KPI 모니터링, 원인 분석, 캠페인/매출 리포트를 구현합니다.</p>
-            <ul class="list">
-              <li>스토리보드/레이아웃 설계</li>
-              <li>운영을 고려한 필터/드릴다운</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="process" class="section">
-        <h3>진행 방식</h3>
-        <div class="split">
-          <div class="card">
-            <h4 style="margin:0 0 8px;">프로젝트 단계</h4>
-            <ol class="list">
-              <li><b>Kick-off</b>: 목표/지표/사용자 정의</li>
-              <li><b>데이터 점검</b>: 소스·컬럼·품질·키 구조</li>
-              <li><b>모델/쿼리</b>: SQL 집계·뷰·데이터 마트</li>
-              <li><b>대시보드</b>: KPI/분석 화면 구현</li>
-              <li><b>정착</b>: 운영 가이드·교육·개선 루프</li>
-            </ol>
-            <p class="small" style="margin-top:10px;">
-              * 범위에 따라 1~4주 MVP 또는 단계별 확장으로 진행합니다.
-            </p>
-          </div>
-          <div class="card">
-            <h4 style="margin:0 0 8px;">산출물 예시</h4>
-            <ul class="list">
-              <li>KPI 정의서(지표 산식/기준/담당)</li>
-              <li>데이터 구조/ERD 또는 스타 스키마(필요시)</li>
-              <li>SQL 쿼리/뷰/집계 로직 문서</li>
-              <li>BI 대시보드(운영용/보고용)</li>
-              <li>운영 가이드(업데이트/품질 점검 체크리스트)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="tech" class="section">
-        <h3>주요 기술</h3>
-        <div class="card">
-          <p style="margin:0 0 10px; color:var(--muted);">
-            “기술”은 화려함보다 <b>의사결정에 바로 쓰이는 실무 구현력</b>에 집중합니다.
-          </p>
-          <div class="grid">
-            <div class="mini">
-              <h4>Excel 분석·자동화</h4>
-              <p>정제/피벗/함수/템플릿으로 초기 운영 구조를 빠르게 만듭니다.</p>
-            </div>
-            <div class="mini">
-              <h4>SQL 추출·집계</h4>
-              <p>JOIN/집계/뷰 설계로 반복 리포팅을 자동화합니다.</p>
-            </div>
-            <div class="mini">
-              <h4>BI 대시보드</h4>
-              <p>Tableau 등으로 KPI 모니터링/원인 분석 화면을 구현합니다.</p>
-            </div>
-          </div>
-          <p class="small" style="margin-top:12px;">
-            기술 스택(예): <span class="mono">Excel · SQL · BigQuery · Tableau · Power BI · GA4(옵션) </span>
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <h3>문의</h3>
-        <div class="card">
-          <p style="margin:0 0 10px; color:var(--muted);">
-            아래 연락처로 문의 주세요. (미팅은 온라인/오프라인 모두 가능)
-          </p>
-          <div class="split">
-            <div>
-              <p style="margin:0 0 6px;"><b>이메일</b></p>
-              <p style="margin:0 0 14px;"><a href="mailto:eybaik85@naver.com">eybaik85@naver.com</a></p>
-
-              <p style="margin:0 0 6px;"><b>연락처</b></p>
-              <p style="margin:0 0 14px;"><a href="tel:+821067085879">010-6708-5879</a></p>
-
-              <p style="margin:0 0 6px;"><b>키워드</b></p>
-              <span class="pill">데이터 구조 설계</span>
-              <span class="pill">대시보드 구축</span>
-              <span class="pill">보고 자동화</span>
-              <span class="pill">기업 교육</span>
-            </div>
-            <div>
-              <p style="margin:0 0 6px;"><b>상담 시 준비하면 좋은 것</b></p>
-              <ul class="list">
-                <li>현재 보고서/대시보드(있다면)</li>
-                <li>데이터 소스(엑셀/DB/툴) 목록</li>
-                <li>핵심 질문: “무엇을 결정하려는가?”</li>
-              </ul>
-              <p class="small" style="margin-top:10px;">
-                * 개인정보/민감 데이터는 공유 전 익명화/가공을 권장합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="footer">
-        <div>© <span id="y"></span> D3 Lab. All rights reserved.</div>
-        <div>사업자 정보는 예비창업 단계에서 추후 업데이트 예정</div>
+    <section id="process" class="section">
+      <h3>진행 방식</h3>
+      <div class="card">
+        <ol class="list">
+          <li>Kick-off: 무엇을 결정할지 정의</li>
+          <li>데이터 점검: 소스·품질·키 구조</li>
+          <li>KPI 정의 및 진단 리포트</li>
+          <li>(선택) 구현 및 운영 정착</li>
+        </ol>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+    <section id="contact" class="section">
+      <h3>문의</h3>
+      <div class="card">
+        <p>이메일: <a href="mailto:eybaik85@naver.com">eybaik85@naver.com</a></p>
+        <p>연락처: <a href="tel:+821067085879">010-6708-5879</a></p>
+        <p style="font-size:12px; color:var(--muted);">
+          상담 전 현재 보고서/대시보드, 데이터 소스 목록을 준비해주시면 좋습니다.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="y"></span> D3 Lab. All rights reserved.</div>
+      <div>상호: 디쓰리랩(D3 Lab) · 대표: 백가은 · 사업자등록번호: 815-34-01691</div>
+      <div>업태: 전문·과학·기술서비스업(경영 컨설팅업) · 개인서비스업(강사)</div>
+      <div>개업일: 2026-02-17 · 일반과세자</div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
