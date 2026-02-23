@@ -85,7 +85,7 @@
       padding:16px;
     }
 
-    .section{padding-top:24px;}
+    .section{padding-top:32px;}
     .section h3{font-size:18px;}
 
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
@@ -94,6 +94,21 @@
     .mini h4{margin:0 0 6px; font-size:15px;}
     .mini p{margin:0; font-size:13px; color:var(--muted);}
     .list{margin:0; padding-left:18px; font-size:13px; color:var(--muted);}
+
+    .video-wrap{
+      position:relative;
+      padding-top:56.25%;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+    .video-wrap iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
 
     .footer{
       margin-top:40px;
@@ -121,6 +136,7 @@
     <nav class="nav">
       <a href="#services">서비스</a>
       <a href="#process">진행</a>
+      <a href="#youtube">강의</a>
       <a href="#contact">문의</a>
     </nav>
   </header>
@@ -139,12 +155,13 @@
         </h2>
 
         <p class="lead">
-          D3 Lab은 BI 도입·대시보드 구축 전에 데이터 구조와 KPI 정의를 점검하는<br>
+          D3 Lab은 BI 도입·대시보드 구축 전에 데이터 구조와 KPI 정의를 점검하는
           Draft Planning(사전 설계) 중심 컨설팅을 제공합니다.
         </p>
 
         <a class="btn primary" href="#contact">사전 진단 미팅 요청</a>
         <a class="btn" href="#services">서비스 범위 보기</a>
+        <a class="btn" href="#youtube">무료 강의 보기</a>
       </div>
 
       <aside class="card">
@@ -156,6 +173,16 @@
           <li>필요 시 구현·교육까지 확장</li>
         </ul>
       </aside>
+    </section>
+
+    <section id="youtube" class="section">
+      <h3>무료 실무 강의 (46강)</h3>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed?listType=playlist&list=PLxVxx2zp4UOYwtxdPrZkZoJoNYw7_Ke8W"
+          allowfullscreen>
+        </iframe>
+      </div>
     </section>
 
     <section id="services" class="section">
@@ -215,6 +242,7 @@
 
 </body>
 </html>
+
 
 
 
