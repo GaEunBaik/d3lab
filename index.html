@@ -41,6 +41,7 @@
     .brand p{margin:0; font-size:12px; color:var(--muted)}
     .nav{display:flex; gap:14px; font-size:13px; color:var(--muted)}
     .nav a{text-decoration:none}
+
     .hero{padding:34px 0 26px; display:grid; grid-template-columns: 1.4fr .6fr; gap:18px;}
     @media (max-width:900px){ .hero{grid-template-columns:1fr;} }
 
@@ -121,6 +122,7 @@
     <nav class="nav">
       <a href="#services">서비스</a>
       <a href="#process">진행</a>
+      <a href="#archive">아카이브</a>
       <a href="#contact">문의</a>
     </nav>
   </header>
@@ -145,9 +147,7 @@
 
         <a class="btn primary" href="#contact">사전 진단 미팅 요청</a>
         <a class="btn" href="#services">서비스 범위 보기</a>
-        <a class="btn"
-           href="https://youtube.com/playlist?list=PLxVxx2zp4UOYwtxdPrZkZoJoNYw7_Ke8W&si=1OdhOE6Z8wdL12Lx"
-           target="_blank" rel="noopener noreferrer">실무 강의 아카이브</a>
+        <a class="btn" href="#archive">실무 강의 아카이브</a>
       </div>
 
       <aside class="card">
@@ -159,6 +159,29 @@
           <li>필요 시 구현·교육까지 확장</li>
         </ul>
       </aside>
+    </section>
+
+    <section id="archive" class="section">
+      <h3>실무 강의 아카이브</h3>
+      <div class="card">
+        <ul class="list">
+          <li>① 업무 환경 세팅 · 실패 없는 시작</li>
+          <li>② 데이터 구조 이해 · 계층/다차원 사고</li>
+          <li>③ KPI/지표 체계 · 기준·산식·필터 정리</li>
+          <li>④ SQL 실무 · JOIN/집계/분석 패턴</li>
+          <li>⑤ BigQuery 연동 · 자동화 데이터 파이프라인</li>
+          <li>⑥ 대시보드 설계 · 업데이트/운영 구조</li>
+          <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
+        </ul>
+
+        <div style="margin-top:14px;">
+          <a class="btn primary"
+             href="https://youtube.com/playlist?list=PLxVxx2zp4UOYwtxdPrZkZoJoNYw7_Ke8W&si=1OdhOE6Z8wdL12Lx"
+             target="_blank" rel="noopener noreferrer">
+            전체 46강 유튜브에서 보기 →
+          </a>
+        </div>
+      </div>
     </section>
 
     <section id="services" class="section">
@@ -218,4 +241,3 @@
 
 </body>
 </html>
-
