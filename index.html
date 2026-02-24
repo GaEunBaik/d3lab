@@ -94,7 +94,20 @@
 
     .mini h4{margin:0 0 6px; font-size:15px;}
     .mini p{margin:0; font-size:13px; color:var(--muted);}
+
+    /* 기존 list (진행 방식 등) */
     .list{margin:0; padding-left:18px; font-size:13px; color:var(--muted);}
+
+    /* 아카이브 전용: 불릿 제거 + 여백 정리 */
+    .alist{
+      margin:10px 0 0;
+      padding-left:0;
+      list-style:none;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .alist li{margin:6px 0;}
+    .archive-btn-row{margin-top:0;} /* 버튼이 아래로 밀리는 문제 방지 */
 
     .footer{
       margin-top:40px;
@@ -191,26 +204,34 @@
       </div>
     </section>
 
+    <!-- 아카이브: 서비스 UI처럼 3칸. 나머지 2칸은 빈 카드 -->
     <section id="archive" class="section">
       <h3>실무 강의 아카이브</h3>
-      <div class="card">
-        <div style="margin-top:14px;">
-          <a class="btn primary"
-             href="https://youtube.com/playlist?list=PLxVxx2zp4UOYwtxdPrZkZoJoNYw7_Ke8W&si=1OdhOE6Z8wdL12Lx"
-             target="_blank" rel="noopener noreferrer">
-            전체 46강 유튜브에서 보기 →
-          </a>
+      <div class="grid">
+        <!-- 1칸: 내용 -->
+        <div class="card mini">
+          <div class="archive-btn-row">
+            <a class="btn primary"
+               href="https://youtube.com/playlist?list=PLxVxx2zp4UOYwtxdPrZkZoJoNYw7_Ke8W&si=1OdhOE6Z8wdL12Lx"
+               target="_blank" rel="noopener noreferrer">
+              전체 46강 유튜브에서 보기 →
+            </a>
+          </div>
+
+          <ul class="alist">
+            <li>① 업무 환경 세팅 · 실패 없는 시작</li>
+            <li>② 데이터 구조 이해 · 계층/다차원 사고</li>
+            <li>③ KPI/지표 체계 · 기준·산식·필터 정리</li>
+            <li>④ SQL 실무 · JOIN/집계/분석 패턴</li>
+            <li>⑤ BigQuery 연동 · 자동화 데이터 파이프라인</li>
+            <li>⑥ 대시보드 설계 · 업데이트/운영 구조</li>
+            <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
+          </ul>
         </div>
-        
-        <ul class="list">
-          <li>① 업무 환경 세팅 · 실패 없는 시작</li>
-          <li>② 데이터 구조 이해 · 계층/다차원 사고</li>
-          <li>③ KPI/지표 체계 · 기준·산식·필터 정리</li>
-          <li>④ SQL 실무 · JOIN/집계/분석 패턴</li>
-          <li>⑤ BigQuery 연동 · 자동화 데이터 파이프라인</li>
-          <li>⑥ 대시보드 설계 · 업데이트/운영 구조</li>
-          <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
-        </ul>
+
+        <!-- 2칸: 공백 카드(요청대로 비워둠) -->
+        <div class="card mini"></div>
+        <div class="card mini"></div>
       </div>
     </section>
 
@@ -241,4 +262,3 @@
 
 </body>
 </html>
-
