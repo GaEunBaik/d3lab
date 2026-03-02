@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>D3 Lab | Draft Planning 기반 데이터 컨설팅</title>
   <meta name="description" content="대시보드/BI 도입 전에 ‘되는지 안 되는지’부터 점검합니다. 데이터 구조·KPI·리스크 진단(Draft Planning) 중심 컨설팅." />
+
   <style>
     :root{
       --bg:#0b1020;
@@ -16,10 +17,6 @@
       --accent2:#6cf0c2;
     }
 
-    /* 여기부터 root 밖 */
-
-    .archive-btn-row{ margin-bottom:16px; } /* 버튼 줄바꿈/여백 조절 */
-
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -30,8 +27,10 @@
       color:var(--text);
       line-height:1.55;
     }
+
     a{color:inherit}
     .wrap{max-width:1040px; margin:0 auto; padding:28px 18px 56px;}
+
     .topbar{
       display:flex; gap:12px; align-items:center; justify-content:space-between;
       padding:10px 0 24px; border-bottom:1px solid var(--line);
@@ -127,7 +126,7 @@
       flex:0 0 auto;
     }
 
-    /* (사전진단) / (선택) 같은 보조텍스트 */
+    /* (사전 진단) / (선택) */
     .sub{
       font-size:12px;
       font-weight:500;
@@ -148,7 +147,7 @@
     }
     .alist li{margin:6px 0;}
 
-    /* 아카이브 2,3번 카드용 */
+    /* 아카이브 카드 제목/설명/하단 pill */
     .card-title{
       margin:0 0 8px;
       font-size:15px;
@@ -172,6 +171,9 @@
       background: rgba(255,255,255,.03);
     }
 
+    /* ✅ 강의 미리보기 버튼도 하단으로 내려가게: 버튼 위 여백 */
+    .archive-btn-row{ margin-top:10px; }
+
     .footer{
       margin-top:40px;
       padding-top:18px;
@@ -184,6 +186,7 @@
     }
   </style>
 </head>
+
 <body>
 <div class="wrap">
 
@@ -236,7 +239,7 @@
       </aside>
     </section>
 
-    <!-- ✅ 서비스(3) + 진행방식(1) = 4칸 1줄 -->
+    <!-- ✅ 서비스(3) + 진행방식(1) = 4칸 -->
     <section id="services" class="section">
       <h3>서비스</h3>
 
@@ -279,19 +282,14 @@
       </div>
     </section>
 
-    <!-- ✅ 아카이브: 3칸 모두 채우기 -->
+    <!-- ✅ 아카이브: 3칸 모두 채움 -->
     <section id="archive" class="section">
       <h3>실무 강의 아카이브</h3>
 
       <div class="grid">
 
-        <!-- 1) 강의 미리보기 -->
+        <!-- 1) 강의 미리보기: 버튼을 하단으로 (2~3칸과 동일한 느낌) -->
         <div class="card mini">
-          <div class="archive-btn-row">
-            <a class="btn primary" href="preview.html">
-              강의 미리보기 (자료/샘플) →
-            </a>
-          </div>
 
           <ul class="alist">
             <li>① 업무 환경 세팅 · 실패 없는 시작</li>
@@ -303,10 +301,16 @@
             <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
           </ul>
 
+          <div class="archive-btn-row">
+            <a class="btn primary" href="preview.html">
+              강의 미리보기 (자료/샘플) →
+            </a>
+          </div>
+
           <div class="pill">요청 시 커리큘럼(PDF)·샘플 자료 공유</div>
         </div>
 
-        <!-- 2) 기업/기관 맞춤 강의/워크숍 -->
+        <!-- 2) 기업·기관 맞춤 -->
         <div class="card mini">
           <div class="card-title">기업·기관 맞춤 강의/워크숍</div>
           <p class="card-desc">
@@ -320,7 +324,11 @@
             <li>Tableau 대시보드 설계/운영</li>
           </ul>
 
-          <a class="btn" href="#contact">강의 문의하기 →</a>
+          <!-- ✅ 구글폼 링크: 주소만 바꾸면 됨 (script에서 주입) -->
+          <a class="btn" id="btnWorkshop" href="#" target="_blank" rel="noopener noreferrer">
+            강의 문의하기 →
+          </a>
+
           <div class="pill">※ 커리큘럼은 업종·데이터 환경에 맞게 조정</div>
         </div>
 
@@ -337,7 +345,11 @@
             <li>BI 도입 전 리스크 체크리스트</li>
           </ul>
 
-          <a class="btn" href="#contact">케이스 스터디 요청 →</a>
+          <!-- ✅ 구글폼 링크: 주소만 바꾸면 됨 (script에서 주입) -->
+          <a class="btn" id="btnCaseStudy" href="#" target="_blank" rel="noopener noreferrer">
+            케이스 스터디 요청 →
+          </a>
+
           <div class="pill">목요일 업로드로 지속 업데이트</div>
         </div>
 
@@ -366,7 +378,19 @@
 </div>
 
 <script>
+  // footer 연도 자동
   document.getElementById("y").textContent = new Date().getFullYear();
+
+  // ✅ 여기 2개만 너가 구글폼 주소로 바꾸면 끝
+  const GOOGLE_FORM_WORKSHOP = "여기에_강의문의_구글폼_URL";
+  const GOOGLE_FORM_CASESTUDY = "여기에_케이스스터디_구글폼_URL";
+
+  const btnWorkshop = document.getElementById("btnWorkshop");
+  const btnCaseStudy = document.getElementById("btnCaseStudy");
+
+  // 주소가 http로 시작할 때만 주입(주소 비어있으면 클릭해도 이동 안 함)
+  if (btnWorkshop && GOOGLE_FORM_WORKSHOP.startsWith("http")) btnWorkshop.href = GOOGLE_FORM_WORKSHOP;
+  if (btnCaseStudy && GOOGLE_FORM_CASESTUDY.startsWith("http")) btnCaseStudy.href = GOOGLE_FORM_CASESTUDY;
 </script>
 
 </body>
