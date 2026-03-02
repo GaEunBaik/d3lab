@@ -16,8 +16,9 @@
       --accent2:#6cf0c2;
     }
     /* 여기부터는 root 밖 */
+
     .archive-btn-row{
-      margin-bottom:16px;
+      margin-bottom:16px; /* 버튼 줄바꿈/여백 조절 */
     }
 
     *{box-sizing:border-box}
@@ -97,18 +98,40 @@
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
     @media (max-width:900px){ .grid{grid-template-columns:1fr;} }
 
-    /* ✅ 4칸 그리드 추가 */
+    /* ✅ 서비스 4칸 */
     .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
     @media (max-width:1100px){ .grid-4{grid-template-columns:repeat(2,1fr);} }
     @media (max-width:700px){ .grid-4{grid-template-columns:1fr;} }
 
-    .mini h4{margin:0 0 6px; font-size:15px;}
+    .mini h4{
+      margin:0 0 8px;
+      font-size:15px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
     .mini p{margin:0; font-size:13px; color:var(--muted);}
 
-    /* 기존 list (진행 방식 등) */
+    /* ✅ 번호 원형 배지(1~4) */
+    .kbadge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--text);
+      background: rgba(122,162,255,.14);
+      border:1px solid rgba(122,162,255,.24);
+      flex:0 0 auto;
+    }
+
+    /* list */
     .list{margin:0; padding-left:18px; font-size:13px; color:var(--muted);}
 
-    /* 아카이브 전용: 불릿 제거 + 여백 정리 */
+    /* 아카이브 전용 */
     .alist{
       margin:10px 0 0;
       padding-left:0;
@@ -117,7 +140,6 @@
       color:var(--muted);
     }
     .alist li{margin:6px 0;}
-    .archive-btn-row{margin-top:0;}
 
     .footer{
       margin-top:40px;
@@ -183,35 +205,34 @@
       </aside>
     </section>
 
-    <!-- ✅ 서비스(3) + 진행방식(1) = 4칸 한 줄 -->
+    <!-- ✅ 서비스(3) + 진행방식(1) = 4칸 1줄 -->
     <section id="services" class="section">
       <h3>서비스</h3>
 
       <div class="grid-4">
         <div class="card mini">
-          <h4>① Draft Planning (사전 진단)</h4>
+          <h4><span class="kbadge">1</span>Draft Planning (사전 진단)</h4>
           <p>데이터 구조, KPI 정의, 리스크 점검 및 1차 진단 리포트 제공</p>
         </div>
 
         <div class="card mini">
-          <h4>② KPI·지표 체계 설계</h4>
+          <h4><span class="kbadge">2</span>KPI·지표 체계 설계</h4>
           <p>산식·기준·필터·책임 정리 및 정의서 작성</p>
         </div>
 
         <div class="card mini">
-          <h4>③ (선택) 구현·정착</h4>
+          <h4><span class="kbadge">3</span>(선택) 구현·정착</h4>
           <p>SQL 집계, BI 대시보드, 운영 가이드 및 교육</p>
         </div>
 
-        <!-- ✅ 기존 진행방식을 오른쪽 4번째 칸으로 이동 -->
         <div class="card mini">
-          <h4>진행 방식</h4>
-          <ol class="list">
+          <h4><span class="kbadge">4</span>진행 방식</h4>
+          <ul class="list">
             <li>Kick-off: 무엇을 결정할지 정의</li>
             <li>데이터 점검: 소스·품질·키 구조</li>
             <li>KPI 정의 및 진단 리포트</li>
             <li>(선택) 구현 및 운영 정착</li>
-          </ol>
+          </ul>
         </div>
       </div>
     </section>
@@ -222,8 +243,7 @@
       <div class="grid">
         <div class="card mini">
           <div class="archive-btn-row">
-            <a class="btn primary"
-               href="preview.html">
+            <a class="btn primary" href="preview.html">
               강의 미리보기(자료/샘플) →
             </a>
           </div>
