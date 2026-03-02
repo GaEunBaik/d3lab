@@ -15,12 +15,12 @@
       --accent:#7aa2ff;
       --accent2:#6cf0c2;
     }
+
     /* 여기부터는 root 밖 */
-    
     .archive-btn-row{
-      margin-bottom:16px;  /* ← 이 값을 조절하면 "전체 46강 유튜브에서 보기 →"에서 1줄 들어감. <br>을 넣으면 안됨 */
+      margin-bottom:16px;
     }
-    
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -113,7 +113,18 @@
       color:var(--muted);
     }
     .alist li{margin:6px 0;}
-    .archive-btn-row{margin-top:0;} /* 버튼이 아래로 밀리는 문제 방지 */
+    .archive-btn-row{margin-top:0;}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      margin-top:10px;
+    }
 
     .footer{
       margin-top:40px;
@@ -210,11 +221,12 @@
       </div>
     </section>
 
-    <!-- 아카이브: 서비스 UI처럼 3칸. 나머지 2칸은 빈 카드 -->
+    <!-- 아카이브: 3칸 모두 채움 (컨설팅 수주 & 강의 홍보 목적) -->
     <section id="archive" class="section">
       <h3>실무 강의 아카이브</h3>
       <div class="grid">
-        <!-- 1칸: 내용 -->
+
+        <!-- 1칸: 유튜브(사회적 증거) -->
         <div class="card mini">
           <div class="archive-btn-row">
             <a class="btn primary"
@@ -235,9 +247,33 @@
           </ul>
         </div>
 
-        <!-- 2칸: 공백 카드(요청대로 비워둠) -->
-        <div class="card mini"></div>
-        <div class="card mini"></div>
+        <!-- 2칸: 기업/기관 강의(영업용) -->
+        <div class="card mini">
+          <h4>기업·기관 맞춤 강의/워크숍</h4>
+          <p>현업 데이터 구조·KPI 정의·SQL/BI 실무를 조직 상황에 맞게 설계합니다.</p>
+          <ul class="alist">
+            <li>• 데이터 구조 이해 &amp; 모델링 기초</li>
+            <li>• KPI/지표 체계 정의 워크숍</li>
+            <li>• SQL 집계/분석 패턴 집중</li>
+            <li>• Tableau 대시보드 설계/운영</li>
+          </ul>
+          <a class="btn" href="#contact">강의 문의하기 →</a>
+          <div class="pill">※ 커리큘럼은 업종·데이터 환경에 맞게 조정</div>
+        </div>
+
+        <!-- 3칸: 케이스 스터디(신뢰 + 앞으로의 확장) -->
+        <div class="card mini">
+          <h4>Case Study (업데이트 예정)</h4>
+          <p>실제 데이터로 “구조 → KPI → 진단 → 구현” 흐름을 정리해 공개합니다.</p>
+          <ul class="alist">
+            <li>• Olist 이커머스 분석 시리즈</li>
+            <li>• KPI 정의서 예시(샘플)</li>
+            <li>• BI 도입 전 리스크 체크리스트</li>
+          </ul>
+          <a class="btn" href="#contact">케이스 스터디 요청 →</a>
+          <div class="pill">목요일 업로드로 지속 업데이트</div>
+        </div>
+
       </div>
     </section>
 
@@ -268,6 +304,3 @@
 
 </body>
 </html>
-
-
-
