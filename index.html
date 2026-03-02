@@ -16,11 +16,10 @@
       --accent2:#6cf0c2;
     }
     /* 여기부터는 root 밖 */
-    
     .archive-btn-row{
-      margin-bottom:16px;  /* ← 이 값을 조절하면 "전체 46강 유튜브에서 보기 →"에서 1줄 들어감. <br>을 넣으면 안됨 */
+      margin-bottom:16px;
     }
-    
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -98,6 +97,11 @@
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
     @media (max-width:900px){ .grid{grid-template-columns:1fr;} }
 
+    /* ✅ 4칸 그리드 추가 */
+    .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+    @media (max-width:1100px){ .grid-4{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:700px){ .grid-4{grid-template-columns:1fr;} }
+
     .mini h4{margin:0 0 6px; font-size:15px;}
     .mini p{margin:0; font-size:13px; color:var(--muted);}
 
@@ -113,7 +117,7 @@
       color:var(--muted);
     }
     .alist li{margin:6px 0;}
-    .archive-btn-row{margin-top:0;} /* 버튼이 아래로 밀리는 문제 방지 */
+    .archive-btn-row{margin-top:0;}
 
     .footer{
       margin-top:40px;
@@ -140,7 +144,6 @@
     </div>
     <nav class="nav">
       <a href="#services">서비스</a>
-      <a href="#process">진행</a>
       <a href="#archive">아카이브</a>
       <a href="#contact">문의</a>
     </nav>
@@ -166,7 +169,7 @@
 
         <a class="btn primary" href="#contact">사전 진단 미팅 요청</a>
         <a class="btn" href="#services">서비스 범위 보기</a>
-        <a class="btn" href="#archive">실무 강의 아카이브</a>
+        <a class="btn" href="preview.html">강의 미리보기</a>
       </div>
 
       <aside class="card">
@@ -180,47 +183,48 @@
       </aside>
     </section>
 
+    <!-- ✅ 서비스(3) + 진행방식(1) = 4칸 한 줄 -->
     <section id="services" class="section">
       <h3>서비스</h3>
-      <div class="grid">
+
+      <div class="grid-4">
         <div class="card mini">
           <h4>① Draft Planning (사전 진단)</h4>
           <p>데이터 구조, KPI 정의, 리스크 점검 및 1차 진단 리포트 제공</p>
         </div>
+
         <div class="card mini">
           <h4>② KPI·지표 체계 설계</h4>
           <p>산식·기준·필터·책임 정리 및 정의서 작성</p>
         </div>
+
         <div class="card mini">
           <h4>③ (선택) 구현·정착</h4>
           <p>SQL 집계, BI 대시보드, 운영 가이드 및 교육</p>
         </div>
+
+        <!-- ✅ 기존 진행방식을 오른쪽 4번째 칸으로 이동 -->
+        <div class="card mini">
+          <h4>진행 방식</h4>
+          <ol class="list">
+            <li>Kick-off: 무엇을 결정할지 정의</li>
+            <li>데이터 점검: 소스·품질·키 구조</li>
+            <li>KPI 정의 및 진단 리포트</li>
+            <li>(선택) 구현 및 운영 정착</li>
+          </ol>
+        </div>
       </div>
     </section>
 
-    <section id="process" class="section">
-      <h3>진행 방식</h3>
-      <div class="card">
-        <ol class="list">
-          <li>Kick-off: 무엇을 결정할지 정의</li>
-          <li>데이터 점검: 소스·품질·키 구조</li>
-          <li>KPI 정의 및 진단 리포트</li>
-          <li>(선택) 구현 및 운영 정착</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 아카이브: 서비스 UI처럼 3칸. 나머지 2칸은 빈 카드 -->
+    <!-- ✅ 아카이브: 버튼을 preview.html로 연결 -->
     <section id="archive" class="section">
       <h3>실무 강의 아카이브</h3>
       <div class="grid">
-        <!-- 1칸: 내용 -->
         <div class="card mini">
           <div class="archive-btn-row">
             <a class="btn primary"
-               href="https://youtube.com/playlist?list=PLxVxx2zp4UOYwtxdPrZkZoJoNYw7_Ke8W&si=1OdhOE6Z8wdL12Lx"
-               target="_blank" rel="noopener noreferrer">
-              전체 46강 유튜브에서 보기 →
+               href="preview.html">
+              강의 미리보기(자료/샘플) →
             </a>
           </div>
 
@@ -235,7 +239,6 @@
           </ul>
         </div>
 
-        <!-- 2칸: 공백 카드(요청대로 비워둠) -->
         <div class="card mini"></div>
         <div class="card mini"></div>
       </div>
