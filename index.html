@@ -15,8 +15,15 @@
       --accent:#7aa2ff;
       --accent2:#6cf0c2;
     }
-    /* 여기부터는 root 밖 */
-
+    
+    /* 여기부터 root 밖 */
+    
+    .sub{
+      font-size:12px;
+      font-weight:500;
+      color:var(--muted);
+    }
+    
     .archive-btn-row{
       margin-bottom:16px; /* 버튼 줄바꿈/여백 조절 */
     }
@@ -211,7 +218,9 @@
 
       <div class="grid-4">
         <div class="card mini">
-          <h4><span class="kbadge">1</span>Draft Planning (사전 진단)</h4>
+          <!--<h4><span class="kbadge">1</span>Draft Planning (사전 진단)</h4>-->
+          <h4><span class="kbadge">1</span>  Draft Planning 
+            <span class="sub"> (사전 진단)</span></h4>
           <!--<p>데이터 구조, KPI 정의, 리스크 점검 및 1차 진단 리포트 제공</p>-->
            <ul class="list">
             <li>데이터 구조</li>
@@ -305,5 +314,6 @@
 
 </body>
 </html>
+
 
 
