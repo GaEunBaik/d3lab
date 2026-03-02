@@ -134,6 +134,14 @@
       border:1px solid rgba(122,162,255,.24);
       flex:0 0 auto;
     }
+    
+    /* 🔽 여기 */
+    .sub{
+      font-size:12px;
+      font-weight:500;
+      color:var(--muted);
+      white-space:nowrap; /* 한 줄 유지용 (있으면 좋음) */
+    }
 
     /* list */
     .list{margin:0; padding-left:18px; font-size:13px; color:var(--muted);}
@@ -239,7 +247,11 @@
         </div>
 
         <div class="card mini">
-          <h4><span class="kbadge">3</span>(선택) 구현·정착</h4>
+          <!--<h4><span class="kbadge">3</span>(선택) 구현·정착</h4>-->
+          <h4>
+            <span class="kbadge">3</span>
+            구현·정착<span class="sub"> (선택)</span>
+          </h4>
           <!--<p>SQL 집계, BI 대시보드, 운영 가이드 및 교육</p>-->
           <ul class="list">
             <li>SQL 집계</li>
@@ -314,6 +326,7 @@
 
 </body>
 </html>
+
 
 
 
