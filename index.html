@@ -15,18 +15,10 @@
       --accent:#7aa2ff;
       --accent2:#6cf0c2;
     }
-    
+
     /* 여기부터 root 밖 */
-    
-    .sub{
-      font-size:12px;
-      font-weight:500;
-      color:var(--muted);
-    }
-    
-    .archive-btn-row{
-      margin-bottom:16px; /* 버튼 줄바꿈/여백 조절 */
-    }
+
+    .archive-btn-row{ margin-bottom:16px; } /* 버튼 줄바꿈/여백 조절 */
 
     *{box-sizing:border-box}
     body{
@@ -134,13 +126,13 @@
       border:1px solid rgba(122,162,255,.24);
       flex:0 0 auto;
     }
-    
-    /* 🔽 여기 */
+
+    /* (사전진단) / (선택) 같은 보조텍스트 */
     .sub{
       font-size:12px;
       font-weight:500;
       color:var(--muted);
-      white-space:nowrap; /* 한 줄 유지용 (있으면 좋음) */
+      white-space:nowrap;
     }
 
     /* list */
@@ -155,6 +147,30 @@
       color:var(--muted);
     }
     .alist li{margin:6px 0;}
+
+    /* 아카이브 2,3번 카드용 */
+    .card-title{
+      margin:0 0 8px;
+      font-size:15px;
+      font-weight:800;
+    }
+    .card-desc{
+      margin:0 0 10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
 
     .footer{
       margin-top:40px;
@@ -226,11 +242,8 @@
 
       <div class="grid-4">
         <div class="card mini">
-          <!--<h4><span class="kbadge">1</span>Draft Planning (사전 진단)</h4>-->
-          <h4><span class="kbadge">1</span>  Draft Planning 
-            <span class="sub"> (사전 진단)</span></h4>
-          <!--<p>데이터 구조, KPI 정의, 리스크 점검 및 1차 진단 리포트 제공</p>-->
-           <ul class="list">
+          <h4><span class="kbadge">1</span>Draft Planning <span class="sub">(사전 진단)</span></h4>
+          <ul class="list">
             <li>데이터 구조</li>
             <li>KPI 정의</li>
             <li>리스크 점검 및 1차 진단 리포트 제공</li>
@@ -239,7 +252,6 @@
 
         <div class="card mini">
           <h4><span class="kbadge">2</span>KPI·지표 체계 설계</h4>
-          <!--<p>산식·기준·필터·책임 정리 및 정의서 작성</p>-->
           <ul class="list">
             <li>산식·기준·필터·책임 정리</li>
             <li>정의서 작성</li>
@@ -247,12 +259,7 @@
         </div>
 
         <div class="card mini">
-          <!--<h4><span class="kbadge">3</span>(선택) 구현·정착</h4>-->
-          <h4>
-            <span class="kbadge">3</span>
-            구현·정착<span class="sub"> (선택)</span>
-          </h4>
-          <!--<p>SQL 집계, BI 대시보드, 운영 가이드 및 교육</p>-->
+          <h4><span class="kbadge">3</span>구현·정착<span class="sub"> (선택)</span></h4>
           <ul class="list">
             <li>SQL 집계</li>
             <li>BI 대시보드</li>
@@ -272,10 +279,13 @@
       </div>
     </section>
 
-    <!-- ✅ 아카이브: 버튼을 preview.html로 연결 -->
+    <!-- ✅ 아카이브: 3칸 모두 채우기 -->
     <section id="archive" class="section">
       <h3>실무 강의 아카이브</h3>
+
       <div class="grid">
+
+        <!-- 1) 강의 미리보기 -->
         <div class="card mini">
           <div class="archive-btn-row">
             <a class="btn primary" href="preview.html">
@@ -292,10 +302,45 @@
             <li>⑥ 대시보드 설계 · 업데이트/운영 구조</li>
             <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
           </ul>
+
+          <div class="pill">요청 시 커리큘럼(PDF)·샘플 자료 공유</div>
         </div>
 
-        <div class="card mini"></div>
-        <div class="card mini"></div>
+        <!-- 2) 기업/기관 맞춤 강의/워크숍 -->
+        <div class="card mini">
+          <div class="card-title">기업·기관 맞춤 강의/워크숍</div>
+          <p class="card-desc">
+            현업 데이터 구조·KPI 정의·SQL/BI 실무를 조직 상황에 맞게 설계합니다.
+          </p>
+
+          <ul class="list">
+            <li>데이터 구조 이해 & 모델링 기초</li>
+            <li>KPI/지표 체계 정의 워크숍</li>
+            <li>SQL 집계/분석 패턴 집중</li>
+            <li>Tableau 대시보드 설계/운영</li>
+          </ul>
+
+          <a class="btn" href="#contact">강의 문의하기 →</a>
+          <div class="pill">※ 커리큘럼은 업종·데이터 환경에 맞게 조정</div>
+        </div>
+
+        <!-- 3) Case Study -->
+        <div class="card mini">
+          <div class="card-title">Case Study <span class="sub">(업데이트 예정)</span></div>
+          <p class="card-desc">
+            실제 데이터로 “구조 → KPI → 진단 → 구현” 흐름을 정리해 공개합니다.
+          </p>
+
+          <ul class="list">
+            <li>Olist 이커머스 분석 시리즈</li>
+            <li>KPI 정의서 예시(샘플)</li>
+            <li>BI 도입 전 리스크 체크리스트</li>
+          </ul>
+
+          <a class="btn" href="#contact">케이스 스터디 요청 →</a>
+          <div class="pill">목요일 업로드로 지속 업데이트</div>
+        </div>
+
       </div>
     </section>
 
@@ -326,8 +371,3 @@
 
 </body>
 </html>
-
-
-
-
-
