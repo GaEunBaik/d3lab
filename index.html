@@ -82,7 +82,7 @@
       border:1px solid rgba(122,162,255,.35);
       background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(108,240,194,.18));
     }
-    
+
     .card{
       background: rgba(17,26,51,.82);
       border:1px solid var(--line);
@@ -90,24 +90,12 @@
       padding:16px;
     }
 
-    /* ✅ 여기 추가 */
-    .card.mini{
-      display:flex;
-      flex-direction:column;
-    }
-    
-    .card.mini .btn,
-    .card.mini .pill{
-      margin-top:auto;
-    }
-    
     .section{padding-top:24px;}
     .section h3{font-size:18px;}
 
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
     @media (max-width:900px){ .grid{grid-template-columns:1fr;} }
 
-    /* ✅ 서비스 4칸 */
     .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
     @media (max-width:1100px){ .grid-4{grid-template-columns:repeat(2,1fr);} }
     @media (max-width:700px){ .grid-4{grid-template-columns:1fr;} }
@@ -121,7 +109,6 @@
     }
     .mini p{margin:0; font-size:13px; color:var(--muted);}
 
-    /* ✅ 번호 원형 배지(1~4) */
     .kbadge{
       display:inline-flex;
       align-items:center;
@@ -137,7 +124,6 @@
       flex:0 0 auto;
     }
 
-    /* (사전 진단) / (선택) */
     .sub{
       font-size:12px;
       font-weight:500;
@@ -145,10 +131,8 @@
       white-space:nowrap;
     }
 
-    /* list */
     .list{margin:0; padding-left:18px; font-size:13px; color:var(--muted);}
 
-    /* 아카이브 전용 */
     .alist{
       margin:10px 0 0;
       padding-left:0;
@@ -158,7 +142,6 @@
     }
     .alist li{margin:6px 0;}
 
-    /* 아카이브 카드 제목/설명/하단 pill */
     .card-title{
       margin:0 0 8px;
       font-size:15px;
@@ -169,11 +152,11 @@
       font-size:13px;
       color:var(--muted);
     }
+
     .pill{
       display:inline-flex;
       align-items:center;
       gap:6px;
-      margin-top:12px;
       padding:8px 10px;
       border-radius:999px;
       font-size:12px;
@@ -182,8 +165,26 @@
       background: rgba(255,255,255,.03);
     }
 
-    /* ✅ 강의 미리보기 버튼도 하단으로 내려가게: 버튼 위 여백 */
-    .archive-btn-row{ margin-top:10px; }
+    /* ✅ 핵심: 아카이브 카드 버튼 줄 맞춤 + 버튼/필 간격 확보 */
+    .archive-card{
+      display:flex;
+      flex-direction:column;
+      min-height: 100%;
+    }
+    .archive-content{
+      flex:1; /* 본문이 늘어나고, 액션 영역은 아래로 내려감 */
+    }
+    .archive-actions{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px; /* 버튼-필 간격(붙는 문제 해결) */
+    }
+
+    /* 버튼을 카드 폭에 맞추고 싶으면(선택) */
+    /* .archive-actions .btn{ width:fit-content; } */
+    /* 모바일에서 보기 좋게 full-width로 하고 싶으면 아래 사용 */
+    /* .archive-actions .btn{ width:100%; text-align:center; margin-right:0; } */
 
     .footer{
       margin-top:40px;
@@ -250,7 +251,6 @@
       </aside>
     </section>
 
-    <!-- ✅ 서비스(3) + 진행방식(1) = 4칸 -->
     <section id="services" class="section">
       <h3>서비스</h3>
 
@@ -293,76 +293,74 @@
       </div>
     </section>
 
-    <!-- ✅ 아카이브: 3칸 모두 채움 -->
     <section id="archive" class="section">
       <h3>실무 강의 아카이브</h3>
 
       <div class="grid">
 
-        <!-- 1) 강의 미리보기: 버튼을 하단으로 (2~3칸과 동일한 느낌) -->
-        <div class="card mini">
-          <div class="card-title">커리큘럼 전체 구조</div>
+        <!-- 1) 커리큘럼 -->
+        <div class="card archive-card">
+          <div class="archive-content">
+            <div class="card-title">커리큘럼 전체 구조</div>
 
-          <ul class="alist">
-            <li>① 업무 환경 세팅 · 실패 없는 시작</li>
-            <li>② 데이터 구조 이해 · 계층/다차원 사고</li>
-            <li>③ KPI/지표 체계 · 기준·산식·필터 정리</li>
-            <li>④ SQL 실무 · JOIN/집계/분석 패턴</li>
-            <li>⑤ BigQuery 연동 · 자동화 데이터 파이프라인</li>
-            <li>⑥ 대시보드 설계 · 업데이트/운영 구조</li>
-            <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
-          </ul>
-
-          <div class="archive-btn-row">
-            <a class="btn primary" href="preview.html">
-              강의 미리보기 (자료/샘플) →
-            </a>
+            <ul class="alist">
+              <li>① 업무 환경 세팅 · 실패 없는 시작</li>
+              <li>② 데이터 구조 이해 · 계층/다차원 사고</li>
+              <li>③ KPI/지표 체계 · 기준·산식·필터 정리</li>
+              <li>④ SQL 실무 · JOIN/집계/분석 패턴</li>
+              <li>⑤ BigQuery 연동 · 자동화 데이터 파이프라인</li>
+              <li>⑥ 대시보드 설계 · 업데이트/운영 구조</li>
+              <li>⑦ 결과물 포트폴리오화 · 문서/스토리 정리</li>
+            </ul>
           </div>
 
-          <div class="pill">요청 시 커리큘럼(PDF)·샘플 자료 공유</div>
+          <div class="archive-actions">
+            <a class="btn primary" href="preview.html">강의 미리보기 (자료/샘플) →</a>
+            <div class="pill">요청 시 커리큘럼(PDF)·샘플 자료 공유</div>
+          </div>
         </div>
 
-        <!-- 2) 기업·기관 맞춤 -->
-        <div class="card mini">
-          <div class="card-title">기업·기관 맞춤 강의/워크숍</div>
-          <p class="card-desc">
-            현업 데이터 구조·KPI 정의·SQL/BI 실무를 조직 상황에 맞게 설계합니다.
-          </p>
+        <!-- 2) 워크숍 -->
+        <div class="card archive-card">
+          <div class="archive-content">
+            <div class="card-title">기업·기관 맞춤 강의/워크숍</div>
+            <p class="card-desc">
+              현업 데이터 구조·KPI 정의·SQL/BI 실무를 조직 상황에 맞게 설계합니다.
+            </p>
 
-          <ul class="list">
-            <li>데이터 구조 이해 & 모델링 기초</li>
-            <li>KPI/지표 체계 정의 워크숍</li>
-            <li>SQL 집계/분석 패턴 집중</li>
-            <li>Tableau 대시보드 설계/운영</li>
-          </ul>
+            <ul class="list">
+              <li>데이터 구조 이해 & 모델링 기초</li>
+              <li>KPI/지표 체계 정의 워크숍</li>
+              <li>SQL 집계/분석 패턴 집중</li>
+              <li>Tableau 대시보드 설계/운영</li>
+            </ul>
+          </div>
 
-          <!-- ✅ 구글폼 링크: 주소만 바꾸면 됨 (script에서 주입) -->
-          <a class="btn" id="btnWorkshop" href="#" target="_blank" rel="noopener noreferrer">
-            강의 문의하기 →
-          </a>
-
-          <div class="pill">※ 커리큘럼은 업종·데이터 환경에 맞게 조정</div>
+          <div class="archive-actions">
+            <a class="btn" id="btnWorkshop" href="#" target="_blank" rel="noopener noreferrer">강의 문의하기 →</a>
+            <div class="pill">※ 커리큘럼은 업종·데이터 환경에 맞게 조정</div>
+          </div>
         </div>
 
-        <!-- 3) Case Study -->
-        <div class="card mini">
-          <div class="card-title">Case Study <span class="sub">(업데이트 예정)</span></div>
-          <p class="card-desc">
-            실제 데이터로 “구조 → KPI → 진단 → 구현” 흐름을 정리해 공개합니다.
-          </p>
+        <!-- 3) 케이스 스터디 -->
+        <div class="card archive-card">
+          <div class="archive-content">
+            <div class="card-title">Case Study <span class="sub">(업데이트 예정)</span></div>
+            <p class="card-desc">
+              실제 데이터로 “구조 → KPI → 진단 → 구현” 흐름을 정리해 공개합니다.
+            </p>
 
-          <ul class="list">
-            <li>Olist 이커머스 분석 시리즈</li>
-            <li>KPI 정의서 예시(샘플)</li>
-            <li>BI 도입 전 리스크 체크리스트</li>
-          </ul>
+            <ul class="list">
+              <li>Olist 이커머스 분석 시리즈</li>
+              <li>KPI 정의서 예시(샘플)</li>
+              <li>BI 도입 전 리스크 체크리스트</li>
+            </ul>
+          </div>
 
-          <!-- ✅ 구글폼 링크: 주소만 바꾸면 됨 (script에서 주입) -->
-          <a class="btn" id="btnCaseStudy" href="#" target="_blank" rel="noopener noreferrer">
-            케이스 스터디 요청 →
-          </a>
-
-          <div class="pill">목요일 업로드로 지속 업데이트</div>
+          <div class="archive-actions">
+            <a class="btn" id="btnCaseStudy" href="#" target="_blank" rel="noopener noreferrer">케이스 스터디 요청 →</a>
+            <div class="pill">목요일 업로드로 지속 업데이트</div>
+          </div>
         </div>
 
       </div>
@@ -390,22 +388,17 @@
 </div>
 
 <script>
-  // footer 연도 자동
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // ✅ 여기 2개만 너가 구글폼 주소로 바꾸면 끝
   const GOOGLE_FORM_WORKSHOP = "여기에_강의문의_구글폼_URL";
   const GOOGLE_FORM_CASESTUDY = "여기에_케이스스터디_구글폼_URL";
 
   const btnWorkshop = document.getElementById("btnWorkshop");
   const btnCaseStudy = document.getElementById("btnCaseStudy");
 
-  // 주소가 http로 시작할 때만 주입(주소 비어있으면 클릭해도 이동 안 함)
   if (btnWorkshop && GOOGLE_FORM_WORKSHOP.startsWith("http")) btnWorkshop.href = GOOGLE_FORM_WORKSHOP;
   if (btnCaseStudy && GOOGLE_FORM_CASESTUDY.startsWith("http")) btnCaseStudy.href = GOOGLE_FORM_CASESTUDY;
 </script>
 
 </body>
 </html>
-
-
