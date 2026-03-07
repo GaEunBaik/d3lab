@@ -77,6 +77,11 @@
       margin-top:10px;
       font-weight:600;
       font-size:14px;
+      transition:all .2s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(255,255,255,.22);
     }
     .btn.primary{
       border:1px solid rgba(122,162,255,.35);
@@ -165,26 +170,20 @@
       background: rgba(255,255,255,.03);
     }
 
-    /* ✅ 핵심: 아카이브 카드 버튼 줄 맞춤 + 버튼/필 간격 확보 */
     .archive-card{
       display:flex;
       flex-direction:column;
-      min-height: 100%;
+      min-height:100%;
     }
     .archive-content{
-      flex:1; /* 본문이 늘어나고, 액션 영역은 아래로 내려감 */
+      flex:1;
     }
     .archive-actions{
       margin-top:14px;
       display:flex;
       flex-direction:column;
-      gap:12px; /* 버튼-필 간격(붙는 문제 해결) */
+      gap:12px;
     }
-
-    /* 버튼을 카드 폭에 맞추고 싶으면(선택) */
-    /* .archive-actions .btn{ width:fit-content; } */
-    /* 모바일에서 보기 좋게 full-width로 하고 싶으면 아래 사용 */
-    /* .archive-actions .btn{ width:100%; text-align:center; margin-right:0; } */
 
     .footer{
       margin-top:40px;
@@ -237,7 +236,7 @@
 
         <a class="btn primary" href="#contact">사전 진단 미팅 요청</a>
         <a class="btn" href="#services">서비스 범위 보기</a>
-        <a class="btn" href="preview.html">강의 미리보기</a>
+        <a class="btn" href="https://inf.run/LeaDc" target="_blank" rel="noopener noreferrer">강의 미리보기</a>
       </div>
 
       <aside class="card">
@@ -319,8 +318,8 @@
           </div>
 
           <div class="archive-actions">
-            <a class="btn primary" href="preview.html">강의 미리보기 (자료/샘플) →</a>
-            <div class="pill">요청 시 커리큘럼(PDF)·샘플 자료 공유</div>
+            <a class="btn primary" href="https://inf.run/LeaDc" target="_blank" rel="noopener noreferrer">강의 미리보기 (자료/샘플) →</a>
+            <div class="pill">인프런 강의 페이지로 이동</div>
           </div>
         </div>
 
@@ -341,7 +340,7 @@
           </div>
 
           <div class="archive-actions">
-            <a class="btn" id="btnWorkshop" href="#" target="_blank" rel="noopener noreferrer">강의 문의하기 →</a>
+            <a class="btn" id="btnWorkshop" href="https://forms.gle/Du5fxk3WAYwjcNrPA" target="_blank" rel="noopener noreferrer">강의 문의하기 →</a>
             <div class="pill">※ 커리큘럼은 업종·데이터 환경에 맞게 조정</div>
           </div>
         </div>
@@ -362,7 +361,7 @@
           </div>
 
           <div class="archive-actions">
-            <a class="btn" id="btnCaseStudy" href="#" target="_blank" rel="noopener noreferrer">케이스 스터디 요청 →</a>
+            <a class="btn" id="btnCaseStudy" href="https://forms.gle/JavF5shWccTKtKC76" target="_blank" rel="noopener noreferrer">케이스 스터디 요청 →</a>
             <div class="pill">목요일 업로드로 지속 업데이트</div>
           </div>
         </div>
@@ -393,17 +392,7 @@
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
-
-  const GOOGLE_FORM_WORKSHOP = "여기에_강의문의_구글폼_URL";
-  const GOOGLE_FORM_CASESTUDY = "여기에_케이스스터디_구글폼_URL";
-
-  const btnWorkshop = document.getElementById("btnWorkshop");
-  const btnCaseStudy = document.getElementById("btnCaseStudy");
-
-  if (btnWorkshop && GOOGLE_FORM_WORKSHOP.startsWith("http")) btnWorkshop.href = GOOGLE_FORM_WORKSHOP;
-  if (btnCaseStudy && GOOGLE_FORM_CASESTUDY.startsWith("http")) btnCaseStudy.href = GOOGLE_FORM_CASESTUDY;
 </script>
 
 </body>
 </html>
-
