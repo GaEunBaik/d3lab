@@ -105,7 +105,6 @@
     .brand {
       display: flex;
       align-items: center;
-
       gap: 10px;
 
       font-weight: 900;
@@ -143,7 +142,6 @@
     .nav-links {
       display: flex;
       align-items: center;
-
       gap: 20px;
     }
 
@@ -167,7 +165,6 @@
       padding: 8px 16px;
 
       background: var(--blue);
-
       color: #fff;
 
       border-radius: 10px;
@@ -207,8 +204,7 @@
     ========================= */
 
     .intro {
-      padding:
-        76px 0 60px;
+      padding: 64px 0 54px;
 
       text-align: center;
     }
@@ -216,9 +212,7 @@
 
     .status {
       display: inline-flex;
-
       align-items: center;
-
       gap: 8px;
 
       padding: 7px 14px;
@@ -253,21 +247,24 @@
 
 
     h1 {
-      margin:
-        24px 0 0;
+      margin: 22px 0 0;
+
+      color: #0f172a;
 
       font-size:
         clamp(
-          38px,
-          6vw,
-          62px
+          36px,
+          4.2vw,
+          52px
         );
 
-      line-height: 1.15;
+      font-weight: 900;
+
+      line-height: 1.18;
 
       letter-spacing: -0.055em;
 
-      color: #0f172a;
+      white-space: nowrap;
     }
 
 
@@ -291,16 +288,15 @@
 
 
     .lead {
-      max-width: 680px;
+      max-width: 760px;
 
-      margin:
-        22px auto 0;
+      margin: 18px auto 0;
 
       color: var(--muted);
 
-      font-size: 17px;
+      font-size: 16px;
 
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
 
@@ -309,36 +305,43 @@
     ========================= */
 
     .section {
-      margin-bottom: 72px;
+      margin-bottom: 56px;
+    }
+
+
+    /*
+      교육 → 프로젝트 사이만
+      조금 더 좁게
+    */
+
+    #education {
+      margin-bottom: 32px;
     }
 
 
     /* =========================
-       SECTION INTRO / TITLE
+       SECTION TITLE
+       카드가 아닌 제목 영역
     ========================= */
 
     .section-intro {
       padding:
-        28px 14px 20px 0;
-
-      background: var(--paper);
+        25px 14px 18px 0;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: flex-start;
+
+      background: var(--paper);
     }
 
 
     .section-intro h2 {
-      margin:
-        0 0 8px;
+      margin: 0 0 8px;
 
       color: #0f172a;
 
-      font-size: 23px;
-
+      font-size: 22px;
       font-weight: 900;
 
       line-height: 1.35;
@@ -354,7 +357,7 @@
 
       font-size: 13px;
 
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
 
@@ -393,9 +396,7 @@
       padding: 22px;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
 
       background: #fff;
@@ -466,15 +467,13 @@
     .badge {
       display: inline-block;
 
-      padding:
-        4px 10px;
+      padding: 4px 10px;
 
       margin-bottom: 12px;
 
       border-radius: 6px;
 
       font-size: 11px;
-
       font-weight: 900;
 
       letter-spacing: 0.04em;
@@ -523,9 +522,7 @@
       padding: 20px;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
 
       background: #fff;
@@ -564,7 +561,6 @@
       color: #111827;
 
       font-size: 17px;
-
       font-weight: 850;
 
       line-height: 1.45;
@@ -596,7 +592,6 @@
 
     .card-link {
       display: inline-flex;
-
       align-items: center;
 
       gap: 4px;
@@ -604,7 +599,6 @@
       color: var(--blue);
 
       font-size: 12px;
-
       font-weight: 850;
     }
 
@@ -619,7 +613,7 @@
     ========================= */
 
     .metric-bar {
-      margin-bottom: 72px;
+      margin-bottom: 56px;
 
       padding:
         24px 32px;
@@ -684,7 +678,7 @@
 
       padding: 38px;
 
-      margin-bottom: 72px;
+      margin-bottom: 56px;
 
       background: #fff;
 
@@ -701,11 +695,9 @@
 
     .about-photo {
       width: 130px;
-
       height: 130px;
 
       display: grid;
-
       place-items: center;
 
       color: #fff;
@@ -720,7 +712,6 @@
       border-radius: 28px;
 
       font-size: 34px;
-
       font-weight: 950;
 
       box-shadow:
@@ -734,7 +725,6 @@
         0 0 6px;
 
       font-size: 22px;
-
       font-weight: 900;
     }
 
@@ -794,7 +784,7 @@
     .contact-banner {
       padding: 40px;
 
-      margin-bottom: 60px;
+      margin-bottom: 50px;
 
       display: flex;
 
@@ -894,6 +884,7 @@
           repeat(2, 1fr);
       }
 
+
       .project-grid .section-intro {
         grid-column:
           1 / -1;
@@ -907,10 +898,23 @@
 
     @media (max-width: 900px) {
 
+      h1 {
+        white-space: normal;
+
+        font-size:
+          clamp(
+            34px,
+            7vw,
+            48px
+          );
+      }
+
+
       .education-grid {
         grid-template-columns:
           repeat(2, 1fr);
       }
+
 
       .education-grid .section-intro {
         grid-column:
@@ -932,7 +936,12 @@
 
       .intro {
         padding:
-          56px 0 46px;
+          50px 0 42px;
+      }
+
+
+      .lead {
+        font-size: 15px;
       }
 
 
@@ -996,6 +1005,11 @@
 
         padding:
           0 0 8px;
+      }
+
+
+      #education {
+        margin-bottom: 42px;
       }
 
     }
@@ -1094,26 +1108,22 @@
 
       <h1>
 
-        의사결정을 바꾸는 엔터프라이즈 BI & 데이터 분석
-
-        <br>
+        의사결정을 바꾸는
+        <em>
+          엔터프라이즈 BI & 데이터 분석
+        </em>
 
       </h1>
 
 
       <p class="lead">
 
-        복잡한 ERP·DW와 운영 데이터를 직관적인 시각화 지표로 연결합니다.
-
-        <br>
-
-        현대카드 전사 MIS 구축,
-        머크 생산·재고 관리 대시보드 등
-        실무 프로젝트를 확인하세요.
+        복잡한 데이터를 의사결정에 필요한 지표와 대시보드로 연결합니다.
 
       </p>
 
     </section>
+
 
         <!-- =========================
          ABOUT
@@ -1152,19 +1162,18 @@
         <p>
 
           경영정보학(MIS) 박사로,
-          데이터 아키텍처와
-          비즈니스 현장 실무의 간극을 메우는 작업을 해왔습니다.
+          데이터 아키텍처와 비즈니스 현장 실무의 간극을 메우는 작업을 해왔습니다.
 
           기업의 전사 MIS 구축,
           재고·정산 프로세스 운영,
           SQL 기반 데이터 검증을 두루 경험하여
 
           <strong>
-            ‘지표 설계부터 대시보드 구현,
-            시스템 데이터 흐름 관리’
+            지표 설계부터 대시보드 구현,
+            시스템 데이터 흐름 관리까지
           </strong>
 
-          까지 전 과정을 수행합니다.
+          전 과정을 수행합니다.
 
         </p>
 
@@ -1208,7 +1217,6 @@
     </section>
 
 
-
     <!-- =========================
          EDUCATION
     ========================== -->
@@ -1231,9 +1239,9 @@
           </h2>
 
           <p>
-            데이터 실무자들을 위해
-            검증된 노하우를 온라인 강의와
-            콘텐츠로 공유합니다.
+            데이터 실무자를 위한
+            강의와 실습 콘텐츠를
+            공유합니다.
           </p>
 
         </div>
@@ -1371,8 +1379,9 @@
           </h2>
 
           <p>
-            기업 및 기관의 데이터 문제를 해결한
-            실제 대시보드 구축 및 분석 사례
+            기업 및 기관의
+            데이터 분석·대시보드
+            구축 사례입니다.
           </p>
 
           <a
@@ -1634,9 +1643,7 @@
         </h2>
 
         <p>
-          기업 교육,
-          데이터 분석,
-          대시보드 프로젝트 문의를 보내주세요.
+          기업 교육, 데이터 분석, 대시보드 프로젝트 문의를 보내주세요.
         </p>
 
       </div>
