@@ -29,6 +29,7 @@
 
       --paper: #f4f7fb;
       --card-bg: #ffffff;
+      --inner-card: #fbfcfe;
     }
 
 
@@ -164,23 +165,18 @@
     .nav-btn {
       padding: 8px 16px;
 
-      background: var(--blue);
       color: #fff;
+      background: var(--blue);
 
       border-radius: 10px;
 
       font-size: 13px;
       font-weight: 850;
-
-      transition:
-        background 0.2s,
-        transform 0.2s;
     }
 
 
     .nav-btn:hover {
       background: var(--blue-dark);
-      transform: translateY(-1px);
     }
 
 
@@ -204,7 +200,7 @@
     ========================= */
 
     .intro {
-      padding: 64px 0 54px;
+      padding: 60px 0 46px;
 
       text-align: center;
     }
@@ -220,9 +216,7 @@
       color: #3b5575;
       background: #fff;
 
-      border:
-        1px solid var(--line);
-
+      border: 1px solid var(--line);
       border-radius: 999px;
 
       font-size: 11px;
@@ -301,38 +295,214 @@
 
 
     /* =========================
-       SECTION
+       ABOUT + METRICS
     ========================= */
 
-    .section {
-      margin-bottom: 56px;
+    .about-box {
+      padding: 38px;
+
+      margin-bottom: 32px;
+
+      background: #fff;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 12px 35px
+        rgba(50, 70, 90, 0.05);
     }
 
 
-    /*
-      교육 → 프로젝트 사이만
-      조금 더 좁게
-    */
+    .about-main {
+      display: grid;
 
-    #education {
-      margin-bottom: 32px;
+      grid-template-columns:
+        140px 1fr;
+
+      gap: 36px;
+
+      align-items: center;
+    }
+
+
+    .about-photo {
+      width: 130px;
+      height: 130px;
+
+      display: grid;
+      place-items: center;
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2b56e6,
+          #29ba9c
+        );
+
+      border-radius: 28px;
+
+      font-size: 34px;
+      font-weight: 950;
+
+      box-shadow:
+        0 10px 25px
+        rgba(43, 86, 230, 0.2);
+    }
+
+
+    .about-content .title-sub {
+      margin-bottom: 14px;
+
+      color: var(--blue);
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+
+    .about-content h3 {
+      margin:
+        0 0 6px;
+
+      color: #0f172a;
+
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+
+    .about-content p {
+      margin:
+        0 0 18px;
+
+      color: #536279;
+
+      font-size: 14px;
+
+      line-height: 1.8;
+    }
+
+
+    .skill-pills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+    }
+
+
+    .skill-pills span {
+      padding:
+        6px 12px;
+
+      color: #344865;
+
+      background: #f0f4fa;
+
+      border-radius: 8px;
+
+      font-size: 11px;
+      font-weight: 850;
     }
 
 
     /* =========================
-       SECTION TITLE
-       카드가 아닌 제목 영역
+       METRICS INSIDE ABOUT
+    ========================= */
+
+    .about-metrics {
+      margin-top: 30px;
+
+      padding-top: 24px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
+
+      border-top:
+        1px solid #e8eef6;
+
+      text-align: center;
+    }
+
+
+    .metric-item strong {
+      display: block;
+
+      color: var(--blue);
+
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+
+    .metric-item span {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       WORK FRAME
+       강의 + 프로젝트
+    ========================= */
+
+    .work-frame {
+      padding: 22px;
+
+      margin-bottom: 32px;
+
+      background: #fff;
+
+      border:
+        1px solid var(--line);
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 12px 35px
+        rgba(50, 70, 90, 0.04);
+    }
+
+
+    .work-section {
+      margin: 0;
+    }
+
+
+    #education {
+      margin-bottom: 28px;
+    }
+
+
+    /* =========================
+       SECTION INTRO
     ========================= */
 
     .section-intro {
       padding:
-        25px 14px 18px 0;
+        24px 14px 18px 0;
 
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
 
-      background: var(--paper);
+      background: transparent;
     }
 
 
@@ -367,14 +537,12 @@
       color: var(--blue);
 
       font-size: 12px;
-
       font-weight: 850;
     }
 
 
     /* =========================
        EDUCATION
-       제목 + 카드 3개
     ========================= */
 
     .education-grid {
@@ -399,7 +567,7 @@
       flex-direction: column;
       justify-content: space-between;
 
-      background: #fff;
+      background: var(--inner-card);
 
       border:
         1px solid var(--line);
@@ -431,7 +599,6 @@
       color: #111827;
 
       font-size: 15px;
-
       font-weight: 850;
 
       line-height: 1.5;
@@ -455,7 +622,6 @@
       color: var(--blue);
 
       font-size: 12px;
-
       font-weight: 850;
     }
 
@@ -500,7 +666,6 @@
 
     /* =========================
        PROJECT
-       제목 + 카드 4개
     ========================= */
 
     .project-grid {
@@ -525,16 +690,12 @@
       flex-direction: column;
       justify-content: space-between;
 
-      background: #fff;
+      background: var(--inner-card);
 
       border:
         1px solid var(--line);
 
       border-radius: 18px;
-
-      box-shadow:
-        0 8px 24px
-        rgba(40, 60, 90, 0.04);
 
       transition:
         transform 0.25s ease,
@@ -609,175 +770,6 @@
 
 
     /* =========================
-       METRIC
-    ========================= */
-
-    .metric-bar {
-      margin-bottom: 56px;
-
-      padding:
-        24px 32px;
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 20px;
-
-      background: #fff;
-
-      border:
-        1px solid var(--line);
-
-      border-radius: 20px;
-
-      text-align: center;
-
-      box-shadow:
-        0 12px 30px
-        rgba(50, 70, 100, 0.04);
-    }
-
-
-    .metric-item strong {
-      display: block;
-
-      color: var(--blue);
-
-      font-size: 21px;
-
-      font-weight: 900;
-    }
-
-
-    .metric-item span {
-      display: block;
-
-      margin-top: 4px;
-
-      color: var(--muted);
-
-      font-size: 12px;
-
-      font-weight: 700;
-    }
-
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about-box {
-      display: grid;
-
-      grid-template-columns:
-        140px 1fr;
-
-      gap: 36px;
-
-      padding: 38px;
-
-      margin-bottom: 56px;
-
-      background: #fff;
-
-      border:
-        1px solid var(--line);
-
-      border-radius: 24px;
-
-      box-shadow:
-        0 12px 35px
-        rgba(50, 70, 90, 0.05);
-    }
-
-
-    .about-photo {
-      width: 130px;
-      height: 130px;
-
-      display: grid;
-      place-items: center;
-
-      color: #fff;
-
-      background:
-        linear-gradient(
-          135deg,
-          #2b56e6,
-          #29ba9c
-        );
-
-      border-radius: 28px;
-
-      font-size: 34px;
-      font-weight: 950;
-
-      box-shadow:
-        0 10px 25px
-        rgba(43, 86, 230, 0.2);
-    }
-
-
-    .about-content h3 {
-      margin:
-        0 0 6px;
-
-      font-size: 22px;
-      font-weight: 900;
-    }
-
-
-    .about-content .title-sub {
-      margin-bottom: 14px;
-
-      color: var(--blue);
-
-      font-size: 13px;
-
-      font-weight: 800;
-    }
-
-
-    .about-content p {
-      margin:
-        0 0 18px;
-
-      color: #536279;
-
-      font-size: 14px;
-
-      line-height: 1.8;
-    }
-
-
-    .skill-pills {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 8px;
-    }
-
-
-    .skill-pills span {
-      padding:
-        6px 12px;
-
-      color: #344865;
-
-      background: #f0f4fa;
-
-      border-radius: 8px;
-
-      font-size: 11px;
-
-      font-weight: 850;
-    }
-
-
-    /* =========================
        CONTACT
     ========================= */
 
@@ -843,7 +835,6 @@
       border-radius: 12px;
 
       font-size: 13px;
-
       font-weight: 900;
     }
 
@@ -924,6 +915,18 @@
           0 0 8px;
       }
 
+
+      .about-main {
+        grid-template-columns:
+          120px 1fr;
+      }
+
+
+      .about-photo {
+        width: 110px;
+        height: 110px;
+      }
+
     }
 
 
@@ -936,7 +939,7 @@
 
       .intro {
         padding:
-          50px 0 42px;
+          50px 0 40px;
       }
 
 
@@ -945,15 +948,7 @@
       }
 
 
-      .metric-bar {
-        grid-template-columns:
-          1fr 1fr;
-
-        gap: 16px;
-      }
-
-
-      .about-box {
+      .about-main {
         grid-template-columns: 1fr;
 
         text-align: center;
@@ -967,6 +962,14 @@
 
       .skill-pills {
         justify-content: center;
+      }
+
+
+      .about-metrics {
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 18px;
       }
 
 
@@ -1008,8 +1011,13 @@
       }
 
 
-      #education {
-        margin-bottom: 42px;
+      .work-frame {
+        padding: 18px;
+      }
+
+
+      .about-box {
+        padding: 26px 22px;
       }
 
     }
@@ -1125,8 +1133,9 @@
     </section>
 
 
-        <!-- =========================
-         ABOUT
+
+    <!-- =========================
+         ABOUT + METRICS
     ========================== -->
 
     <section
@@ -1135,494 +1144,477 @@
     >
 
 
-      <div class="about-photo">
-
-        D3
-
-      </div>
+      <div class="about-main">
 
 
-      <div class="about-content">
+        <div class="about-photo">
 
-
-        <div class="title-sub">
-
-          LEAD CONSULTANT & ANALYST
+          D3
 
         </div>
 
 
-        <h3>
-
-          백가은 (Gaeun Baik)
-
-        </h3>
+        <div class="about-content">
 
 
-        <p>
+          <div class="title-sub">
 
-          경영정보학(MIS) 박사로,
-          데이터 아키텍처와 비즈니스 현장 실무의 간극을 메우는 작업을 해왔습니다.
+            LEAD CONSULTANT & ANALYST
 
-          기업의 전사 MIS 구축,
-          재고·정산 프로세스 운영,
-          SQL 기반 데이터 검증을 두루 경험하여
+          </div>
+
+
+          <h3>
+
+            백가은 (Gaeun Baik)
+
+          </h3>
+
+
+          <p>
+
+            경영정보학(MIS) 박사로,
+            데이터 아키텍처와 비즈니스 현장 실무의 간극을 메우는 작업을 해왔습니다.
+
+            기업의 전사 MIS 구축,
+            재고·정산 프로세스 운영,
+            SQL 기반 데이터 검증을 두루 경험하여
+
+            <strong>
+              지표 설계부터 대시보드 구현,
+              시스템 데이터 흐름 관리까지
+            </strong>
+
+            전 과정을 수행합니다.
+
+          </p>
+
+
+          <div class="skill-pills">
+
+            <span>Tableau</span>
+
+            <span>Power BI</span>
+
+            <span>SQL & BigQuery</span>
+
+            <span>MIS 화면설계</span>
+
+            <span>매출·재고 정산</span>
+
+            <span>Power Query 자동화</span>
+
+            <span>Oracle</span>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- METRICS -->
+
+      <div class="about-metrics">
+
+
+        <div class="metric-item">
 
           <strong>
-            지표 설계부터 대시보드 구현,
-            시스템 데이터 흐름 관리까지
+            10+ Years
           </strong>
 
-          전 과정을 수행합니다.
-
-        </p>
-
-
-        <div class="skill-pills">
-
-
           <span>
-            Tableau
+            경영정보 & 데이터 분석 이력
           </span>
-
-          <span>
-            Power BI
-          </span>
-
-          <span>
-            SQL & BigQuery
-          </span>
-
-          <span>
-            MIS 화면설계
-          </span>
-
-          <span>
-            매출·재고 정산
-          </span>
-
-          <span>
-            Power Query 자동화
-          </span>
-
-          <span>
-            Oracle
-          </span>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         EDUCATION
-    ========================== -->
-
-    <section
-      id="education"
-      class="section"
-    >
-
-
-      <div class="education-grid">
-
-
-        <!-- TITLE -->
-
-        <div class="section-intro">
-
-          <h2>
-            실무 지식 공유 및 강의
-          </h2>
-
-          <p>
-            데이터 실무자를 위한
-            강의와 실습 콘텐츠를
-            공유합니다.
-          </p>
 
         </div>
 
 
+        <div class="metric-item">
 
-        <!-- Inflearn -->
+          <strong>
+            Enterprise
+          </strong>
 
-        <a
-          class="content-card"
-          href="https://www.inflearn.com/users/1076997/@gaeunbaek"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <span>
+            금융·글로벌 기업 BI 구축
+          </span>
 
-          <div>
-
-            <span class="badge badge-mint">
-              인프런 온라인 강의
-            </span>
-
-            <h4>
-              실무 데이터 분석과 대시보드 설계
-            </h4>
-
-            <p>
-              SQL, BigQuery 추출부터
-              비즈니스 KPI 도출,
-              전사 대시보드 화면 설계까지
-            </p>
-
-          </div>
-
-          <div class="link-text">
-            강의 커리큘럼 보기 ↗
-          </div>
-
-        </a>
+        </div>
 
 
+        <div class="metric-item">
 
-        <!-- YouTube -->
+          <strong>
+            Tableau / SQL
+          </strong>
 
-        <a
-          class="content-card"
-          href="https://www.youtube.com/@d3lab_official"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <span>
+            데이터 모델링 & 시각화
+          </span>
 
-          <div>
-
-            <span class="badge badge-blue">
-              D3 Lab 유튜브
-            </span>
-
-            <h4>
-              실무 데이터 정제 & 시각화
-            </h4>
-
-            <p>
-              엑셀, 파워쿼리,
-              데이터 정합성 검증과
-              실무 트러블슈팅 사례 해설
-            </p>
-
-          </div>
-
-          <div class="link-text">
-            채널 바로가기 ↗
-          </div>
-
-        </a>
+        </div>
 
 
+        <div class="metric-item">
 
-        <!-- Archive -->
+          <strong>
+            BI Education
+          </strong>
 
-        <a
-          class="content-card"
-          href="/preview.html"
-        >
+          <span>
+            실무 데이터 강의 & 콘텐츠
+          </span>
 
-          <div>
-
-            <span class="badge badge-purple">
-              D3 Lab 자료실
-            </span>
-
-            <h4>
-              실습 데이터 & 템플릿 아카이브
-            </h4>
-
-            <p>
-              KPI 정의서,
-              쿼리 템플릿,
-              데이터 정제 실습 파일
-              다운로드 및 가이드
-            </p>
-
-          </div>
-
-          <div class="link-text">
-            자료실 이동 →
-          </div>
-
-        </a>
+        </div>
 
 
       </div>
+
 
     </section>
 
 
 
     <!-- =========================
-         PROJECTS
+         WORK FRAME
     ========================== -->
 
-    <section
-      id="projects"
-      class="section"
-    >
+    <div class="work-frame">
 
 
-      <div class="project-grid">
+      <!-- =========================
+           EDUCATION
+      ========================== -->
+
+      <section
+        id="education"
+        class="work-section"
+      >
 
 
-        <!-- TITLE -->
+        <div class="education-grid">
 
-        <div class="section-intro">
 
-          <h2>
-            주요 프로젝트 포트폴리오
-          </h2>
+          <div class="section-intro">
 
-          <p>
-            기업 및 기관의
-            데이터 분석·대시보드
-            구축 사례입니다.
-          </p>
+            <h2>
+              실무 지식 공유 및 강의
+            </h2>
+
+            <p>
+              데이터 실무자를 위한
+              강의와 실습 콘텐츠를
+              공유합니다.
+            </p>
+
+          </div>
+
+
 
           <a
-            class="section-more"
-            href="https://docs.google.com/presentation/d/1KxQrbTThNyvCOzo1XR4_AJa-a6zGjXGH4M4N58DFP48/edit?usp=sharing"
+            class="content-card"
+            href="https://www.inflearn.com/users/1076997/@gaeunbaek"
             target="_blank"
             rel="noopener noreferrer"
           >
-            전체 산출물 보기 →
+
+            <div>
+
+              <span class="badge badge-mint">
+                인프런 온라인 강의
+              </span>
+
+              <h4>
+                실무 데이터 분석과 대시보드 설계
+              </h4>
+
+              <p>
+                SQL, BigQuery 추출부터
+                비즈니스 KPI 도출,
+                전사 대시보드 화면 설계까지
+              </p>
+
+            </div>
+
+            <div class="link-text">
+              강의 커리큘럼 보기 ↗
+            </div>
+
           </a>
+
+
+
+          <a
+            class="content-card"
+            href="https://www.youtube.com/@d3lab_official"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div>
+
+              <span class="badge badge-blue">
+                D3 Lab 유튜브
+              </span>
+
+              <h4>
+                실무 데이터 정제 & 시각화
+              </h4>
+
+              <p>
+                엑셀, 파워쿼리,
+                데이터 정합성 검증과
+                실무 트러블슈팅 사례 해설
+              </p>
+
+            </div>
+
+            <div class="link-text">
+              채널 바로가기 ↗
+            </div>
+
+          </a>
+
+
+
+          <a
+            class="content-card"
+            href="/preview.html"
+          >
+
+            <div>
+
+              <span class="badge badge-purple">
+                D3 Lab 자료실
+              </span>
+
+              <h4>
+                실습 데이터 & 템플릿 아카이브
+              </h4>
+
+              <p>
+                KPI 정의서,
+                쿼리 템플릿,
+                데이터 정제 실습 파일
+                다운로드 및 가이드
+              </p>
+
+            </div>
+
+            <div class="link-text">
+              자료실 이동 →
+            </div>
+
+          </a>
+
 
         </div>
 
-
-
-        <!-- PROJECT 1 -->
-
-        <article class="project-card">
-
-          <div>
-
-            <span class="badge badge-blue">
-              ENTERPRISE BI
-            </span>
-
-            <h3>
-              현대카드
-              <br>
-              전사 MIS 구축
-            </h3>
-
-            <p>
-              9개 본부의 DW 및 수기 데이터를 통합한
-              경영정보 대시보드 구축 프로젝트
-            </p>
-
-          </div>
-
-
-          <div class="card-footer">
-
-            <a
-              class="card-link"
-              href="https://docs.google.com/presentation/d/1F8MjksAKm5x-AQ0xU7x33FqInrSYl1FUqcOgOseQ8jU/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              상세보기 ↗
-            </a>
-
-          </div>
-
-        </article>
+      </section>
 
 
 
-        <!-- PROJECT 2 -->
+      <!-- =========================
+           PROJECTS
+      ========================== -->
 
-        <article class="project-card">
+      <section
+        id="projects"
+        class="work-section"
+      >
 
-          <div>
 
-            <span class="badge badge-mint">
-              OPERATIONS & SCM
-            </span>
+        <div class="project-grid">
 
-            <h3>
-              머크
-              <br>
-              생산·재고 관리
-            </h3>
+
+          <div class="section-intro">
+
+            <h2>
+              주요 프로젝트 포트폴리오
+            </h2>
 
             <p>
-              생산량과 재고 수불 데이터를 기반으로 한
-              운영 모니터링 대시보드 구축
+              기업 및 기관의
+              데이터 분석·대시보드
+              구축 사례입니다.
             </p>
 
-          </div>
-
-
-          <div class="card-footer">
-
             <a
-              class="card-link"
-              href="https://docs.google.com/presentation/d/1mPPCAo9IvVbkM-5SnR8N1Qnlulx1yBxtl-ww21mQJMk/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              상세보기 ↗
-            </a>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- PROJECT 3 -->
-
-        <article class="project-card">
-
-          <div>
-
-            <span class="badge badge-purple">
-              RISK MONITORING
-            </span>
-
-            <h3>
-              교수상조회
-              <br>
-              자산·대출 관리
-            </h3>
-
-            <p>
-              회원별 대출·상환 데이터를 분석한
-              자산 및 리스크 모니터링 시스템
-            </p>
-
-          </div>
-
-
-          <div class="card-footer">
-
-            <a
-              class="card-link"
+              class="section-more"
               href="https://docs.google.com/presentation/d/1KxQrbTThNyvCOzo1XR4_AJa-a6zGjXGH4M4N58DFP48/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
-              상세보기 ↗
+              전체 산출물 보기 →
             </a>
 
           </div>
 
-        </article>
+
+
+          <article class="project-card">
+
+            <div>
+
+              <span class="badge badge-blue">
+                ENTERPRISE BI
+              </span>
+
+              <h3>
+                현대카드
+                <br>
+                전사 MIS 구축
+              </h3>
+
+              <p>
+                9개 본부의 DW 및 수기 데이터를 통합한
+                경영정보 대시보드 구축 프로젝트
+              </p>
+
+            </div>
+
+
+            <div class="card-footer">
+
+              <a
+                class="card-link"
+                href="https://docs.google.com/presentation/d/1F8MjksAKm5x-AQ0xU7x33FqInrSYl1FUqcOgOseQ8jU/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                상세보기 ↗
+              </a>
+
+            </div>
+
+          </article>
 
 
 
-        <!-- PROJECT 4 -->
+          <article class="project-card">
 
-        <article class="project-card">
+            <div>
 
-          <div>
+              <span class="badge badge-mint">
+                OPERATIONS & SCM
+              </span>
 
-            <span class="badge badge-blue">
-              INTERACTIVE VIZ
-            </span>
+              <h3>
+                머크
+                <br>
+                생산·재고 관리
+              </h3>
 
-            <h3>
-              Tableau Public
-              <br>
-              시각화 아카이브
-            </h3>
+              <p>
+                생산량과 재고 수불 데이터를 기반으로 한
+                운영 모니터링 대시보드 구축
+              </p>
 
-            <p>
-              공간·시계열·다차원 데이터를 활용한
-              인터랙티브 데이터 시각화 프로젝트
-            </p>
-
-          </div>
+            </div>
 
 
-          <div class="card-footer">
+            <div class="card-footer">
 
-            <a
-              class="card-link"
-              href="https://public.tableau.com/app/profile/gaeunbaek/vizzes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tableau 보기 ↗
-            </a>
+              <a
+                class="card-link"
+                href="https://docs.google.com/presentation/d/1mPPCAo9IvVbkM-5SnR8N1Qnlulx1yBxtl-ww21mQJMk/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                상세보기 ↗
+              </a>
 
-          </div>
+            </div>
 
-        </article>
-
-
-      </div>
-
-    </section>
+          </article>
 
 
 
-    <!-- =========================
-         METRICS
-    ========================== -->
+          <article class="project-card">
 
-    <div class="metric-bar">
+            <div>
 
+              <span class="badge badge-purple">
+                RISK MONITORING
+              </span>
 
-      <div class="metric-item">
+              <h3>
+                교수상조회
+                <br>
+                자산·대출 관리
+              </h3>
 
-        <strong>
-          10+ Years
-        </strong>
+              <p>
+                회원별 대출·상환 데이터를 분석한
+                자산 및 리스크 모니터링 시스템
+              </p>
 
-        <span>
-          경영정보 & 데이터 분석 이력
-        </span>
-
-      </div>
-
-
-      <div class="metric-item">
-
-        <strong>
-          Enterprise
-        </strong>
-
-        <span>
-          금융·글로벌 기업 BI 구축
-        </span>
-
-      </div>
+            </div>
 
 
-      <div class="metric-item">
+            <div class="card-footer">
 
-        <strong>
-          Tableau / SQL
-        </strong>
+              <a
+                class="card-link"
+                href="https://docs.google.com/presentation/d/1KxQrbTThNyvCOzo1XR4_AJa-a6zGjXGH4M4N58DFP48/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                상세보기 ↗
+              </a>
 
-        <span>
-          데이터 모델링 & 시각화
-        </span>
+            </div>
 
-      </div>
+          </article>
 
 
-      <div class="metric-item">
 
-        <strong>
-          BI Education
-        </strong>
+          <article class="project-card">
 
-        <span>
-          실무 데이터 강의 & 콘텐츠
-        </span>
+            <div>
 
-      </div>
+              <span class="badge badge-blue">
+                INTERACTIVE VIZ
+              </span>
+
+              <h3>
+                Tableau Public
+                <br>
+                시각화 아카이브
+              </h3>
+
+              <p>
+                공간·시계열·다차원 데이터를 활용한
+                인터랙티브 데이터 시각화 프로젝트
+              </p>
+
+            </div>
+
+
+            <div class="card-footer">
+
+              <a
+                class="card-link"
+                href="https://public.tableau.com/app/profile/gaeunbaek/vizzes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tableau 보기 ↗
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
 
 
     </div>
