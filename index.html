@@ -106,6 +106,7 @@
     .brand {
       display: flex;
       align-items: center;
+
       gap: 10px;
 
       font-weight: 900;
@@ -143,6 +144,7 @@
     .nav-links {
       display: flex;
       align-items: center;
+
       gap: 20px;
     }
 
@@ -209,6 +211,7 @@
     .status {
       display: inline-flex;
       align-items: center;
+
       gap: 8px;
 
       padding: 7px 14px;
@@ -216,7 +219,9 @@
       color: #3b5575;
       background: #fff;
 
-      border: 1px solid var(--line);
+      border:
+        1px solid var(--line);
+
       border-radius: 999px;
 
       font-size: 11px;
@@ -295,7 +300,7 @@
 
 
     /* =========================
-       ABOUT + METRICS
+       ABOUT
     ========================= */
 
     .about-box {
@@ -413,7 +418,7 @@
 
 
     /* =========================
-       METRICS INSIDE ABOUT
+       METRICS
     ========================= */
 
     .about-metrics {
@@ -459,7 +464,6 @@
 
     /* =========================
        WORK FRAME
-       강의 + 프로젝트
     ========================= */
 
     .work-frame {
@@ -499,7 +503,9 @@
         24px 14px 18px 0;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: flex-start;
 
       background: transparent;
@@ -507,7 +513,8 @@
 
 
     .section-intro h2 {
-      margin: 0 0 8px;
+      margin:
+        0 0 8px;
 
       color: #0f172a;
 
@@ -564,7 +571,9 @@
       padding: 22px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: space-between;
 
       background: var(--inner-card);
@@ -633,7 +642,8 @@
     .badge {
       display: inline-block;
 
-      padding: 4px 10px;
+      padding:
+        4px 10px;
 
       margin-bottom: 12px;
 
@@ -687,7 +697,9 @@
       padding: 20px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: space-between;
 
       background: var(--inner-card);
@@ -753,6 +765,7 @@
 
     .card-link {
       display: inline-flex;
+
       align-items: center;
 
       gap: 4px;
@@ -773,59 +786,20 @@
        CONTACT
     ========================= */
 
-    .contact-info {
-  margin-top: 18px;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 5px;
-}
-
-
-.contact-info a {
-  color: #e2e8f0;
-
-  font-size: 13px;
-}
-
-
-.contact-info strong {
-  display: inline-block;
-
-  width: 42px;
-
-  color: #94a3b8;
-
-  font-size: 12px;
-}
-
-
-.contact-info a:hover {
-  color: #fff;
-}
-
-
-.contact-note {
-  margin-top: 10px;
-
-  color: #94a3b8;
-
-  font-size: 11px;
-}
-    
     .contact-banner {
-      padding: 40px;
+      padding:
+        34px 38px;
 
       margin-bottom: 50px;
 
-      display: flex;
+      display: grid;
+
+      grid-template-columns:
+        1fr auto;
 
       align-items: center;
 
-      justify-content: space-between;
-
-      gap: 30px;
+      gap: 50px;
 
       color: #fff;
 
@@ -835,48 +809,89 @@
     }
 
 
-    .contact-banner h2 {
+    .contact-text h2 {
       margin:
-        0 0 8px;
+        0 0 7px;
 
       color: #fff;
 
-      font-size: 26px;
+      font-size: 25px;
+
+      letter-spacing: -0.025em;
     }
 
 
-    .contact-banner p {
+    .contact-text p {
       margin: 0;
 
       color: #94a3b8;
 
-      font-size: 14px;
+      font-size: 13px;
     }
 
 
-    .contact-btn-box {
+    .contact-links {
+      min-width: 350px;
+
       display: flex;
 
       flex-direction: column;
 
-      align-items: flex-end;
-
-      gap: 10px;
+      gap: 8px;
     }
 
 
-    .contact-btn {
+    .contact-link {
       padding:
-        12px 24px;
+        11px 14px;
 
-      color: #152238;
+      display: grid;
 
-      background: #fff;
+      grid-template-columns:
+        54px 1fr;
+
+      align-items: center;
+
+      gap: 10px;
+
+      background:
+        rgba(255, 255, 255, 0.06);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.10);
 
       border-radius: 12px;
 
+      transition:
+        background 0.2s,
+        border-color 0.2s;
+    }
+
+
+    .contact-link:hover {
+      background:
+        rgba(255, 255, 255, 0.10);
+
+      border-color:
+        rgba(255, 255, 255, 0.18);
+    }
+
+
+    .contact-label {
+      color: #94a3b8;
+
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+
+    .contact-value {
+      color: #fff;
+
       font-size: 13px;
-      font-weight: 900;
+      font-weight: 750;
+
+      letter-spacing: 0.01em;
     }
 
 
@@ -968,6 +983,18 @@
         height: 110px;
       }
 
+
+      .contact-banner {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+      }
+
+
+      .contact-links {
+        min-width: 0;
+      }
+
     }
 
 
@@ -1014,18 +1041,6 @@
       }
 
 
-      .contact-banner {
-        flex-direction: column;
-
-        text-align: center;
-      }
-
-
-      .contact-btn-box {
-        align-items: center;
-      }
-
-
       footer {
         flex-direction: column;
 
@@ -1058,12 +1073,30 @@
 
 
       .about-box {
-        padding: 26px 22px;
+        padding:
+          26px 22px;
+      }
+
+
+      .contact-banner {
+        padding:
+          28px 22px;
+      }
+
+
+      .contact-link {
+        grid-template-columns: 44px 1fr;
+      }
+
+
+      .contact-value {
+        font-size: 12px;
       }
 
     }
 
   </style>
+
 </head>
 
 
@@ -1234,17 +1267,11 @@
           <div class="skill-pills">
 
             <span>Tableau</span>
-
             <span>Power BI</span>
-
             <span>SQL & BigQuery</span>
-
             <span>MIS 화면설계</span>
-
             <span>매출·재고 정산</span>
-
             <span>Power Query 자동화</span>
-
             <span>Oracle</span>
 
           </div>
@@ -1256,8 +1283,6 @@
       </div>
 
 
-
-      <!-- METRICS -->
 
       <div class="about-metrics">
 
@@ -1662,55 +1687,65 @@
 
 
 
-<!-- =========================
-     CONTACT
-========================== -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
-<section class="contact-banner">
-
-  <div>
-
-    <h2>
-      D3 Lab에 문의하세요
-    </h2>
-
-    <p>
-      기업 교육, 데이터 분석, 대시보드 프로젝트 문의를 보내주세요.
-    </p>
-
-    <div class="contact-info">
-
-      <a href="tel:01027188763">
-        <strong>전화</strong>
-        010-2718-8763
-      </a>
-
-      <a href="mailto:d3lab.official@gmail.com">
-        <strong>메일</strong>
-        d3lab.official@gmail.com
-      </a>
-
-    </div>
-
-    <div class="contact-note">
-      전화 연결이 어려운 경우 문자 또는 이메일로 문의해 주세요
-    </div>
-
-  </div>
+    <section class="contact-banner">
 
 
-  <div class="contact-btn-box">
+      <div class="contact-text">
 
-    <a
-      class="contact-btn"
-      href="mailto:d3lab.official@gmail.com"
-    >
-      이메일 보내기 ↗
-    </a>
+        <h2>
+          D3 Lab에 문의하세요
+        </h2>
 
-  </div>
+        <p>
+          기업 교육, 데이터 분석, 대시보드 프로젝트 문의를 보내주세요.
+        </p>
 
-</section>
+      </div>
+
+
+      <div class="contact-links">
+
+
+        <a
+          class="contact-link"
+          href="tel:01027188763"
+        >
+
+          <span class="contact-label">
+            PHONE
+          </span>
+
+          <span class="contact-value">
+            010-2718-8763
+          </span>
+
+        </a>
+
+
+        <a
+          class="contact-link"
+          href="mailto:d3lab.official@gmail.com"
+        >
+
+          <span class="contact-label">
+            EMAIL
+          </span>
+
+          <span class="contact-value">
+            d3lab.official@gmail.com
+          </span>
+
+        </a>
+
+
+      </div>
+
+
+    </section>
 
 
 
